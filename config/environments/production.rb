@@ -23,7 +23,7 @@ Rails.application.configure do
   #
 
 config.action_mailer.delivery_method = :smtp
-config.action_mailer.default_url_options = { host: 'princebatra.tech' }
+config.action_mailer.default_url_options = { host: 'whispering-ridge-74517.herokuapp.com' }
 
 ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.gmail.com',
