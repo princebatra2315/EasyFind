@@ -18,6 +18,24 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+
+
+  #
+
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = { host: 'princebatra.tech' }
+
+ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.gmail.com',
+    :port           => '25',
+    :authentication => 'plain',
+    :user_name      => 'princebatra2315@gmail.com',
+    :password       => 'neha@1234',
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+}
+
+  #
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass

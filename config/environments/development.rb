@@ -36,7 +36,7 @@ config.action_mailer.raise_delivery_errors = true
     address: 'smtp.gmail.com',
     port: 25,
     domain: 'gmail.com',
-    user_name: 'findeasy12@gmail.com',
+    user_name: 'princebatra2315@gmail.com',
     password: 'neha@1234',
     authentication: 'plain',
     enable_starttls_auto: true
