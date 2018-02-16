@@ -34,7 +34,7 @@ config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
-    port: 25,
+    port: '25',
     domain: 'gmail.com',
     user_name: 'princebatra2315@gmail.com',
     password: 'neha@1234',
