@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: MyString
+  type: 
+  phone: MyString
+  details: MyText
+  allowed: MyString
+  picture: MyString
+  user: one
+
+two:
+  price: MyString
+  type: 
+  phone: MyString
+  details: MyText
+  allowed: MyString
+  picture: MyString
+  user: two

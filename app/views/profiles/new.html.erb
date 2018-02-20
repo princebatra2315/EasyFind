@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<body onload="onReady()">
+
+<h1>Gnerate Profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+   
+  <%= form_for(@profile, url: profile_url) do |f| %>
+    
+    
+      <%= f.label :Price %>
+      <%= f.text_field :price,class: 'form-control'%>
+      <br>
+      <%= f.label :Allowed %>
+      <%= f.select :allowed, ['Only Boys', 'Only Girls', 'Both'], class: 'form-control' %>
+      <br><br>
+      <%= f.label :Details %>
+      <%= f.text_field :details,class: 'form-control'%>
+
+      <%= f.label :Phone %>
+      <%= f.text_field :phone,class: 'form-control'%>
+       <br>
+      <%= f.label :Type %>
+      <%= f.select :room_type, ['FLAT', 'PG'], class: 'form-control' %>
+       <br><br>
+       <%= f.label :Address %>
+       <%= f.text_field :address,class: 'form-control' %>
+        
+        <br/> 
+        <%= f.label :Profile_pic %>
+      
+        <span class="picture">
+       <input type="hidden" id="profile_picture" name="profile_picture">
+       </span> 
+       <br>
+       <input type="file" onchange="getfile()" id="photo">
+       <progress value="0" id="uploader" max="100">0%</progress>
+       <br/>
+       <%= f.submit "Create Profile", class: "btn btn-primary",id: "submit_profile" %>
+ 
+      <% end %>
+      
+      <button id="submitBtngg" onclick="myfunction()" style="display: none;">submit</button>
+      
+
+    </div>
+  </div>
+      <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyARSLZERWUbOj9al-p6Z1GtZ2S4laaKujk",
+          authDomain: "my-first-project-92a09.firebaseapp.com",
+          databaseURL: "https://my-first-project-92a09.firebaseio.com",
+          projectId: "my-first-project-92a09",
+          storageBucket: "my-first-project-92a09.appspot.com",
+          messagingSenderId: "954106895298"
+        };
+        firebase.initializeApp(config);
+      </script>
+      <script type="text/javascript">
+      var selectedFile;
+      var pic;
+      function onReady(){
+        pic = document.getElementById("photo");
+/*        navigator.geolocation.getCurrentPosition(showPosition);
+*/      };
+/*      function showPosition(position) {
+          console.log(position.coords.latitude, position.coords.longitude);
+      }*/
+      function getfile()
+      {
+          selectedFile = pic.files[0];
+          console.log(selectedFile);
+          document.getElementById('submit_profile').setAttribute('disabled','true');
+          document.getElementById('submitBtngg').click();
+      }
+      function myfunction()
+      {  
+
+          var name = "<%= current_user.email%>";
+
+          var storageRef = firebase.storage().ref('/images/'+ name);
+          var uploadTask = storageRef.put(selectedFile);
+          uploadTask.on('state_changed', function(snapshot){
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              var uploader = document.getElementById('uploader');
+              uploader.value=progress;
+
+              switch (snapshot.state) {
+                case firebase.storage.TaskState.PAUSED: 
+                  console.log('Upload is paused');
+                  break;
+                case firebase.storage.TaskState.RUNNING: 
+                  console.log('Upload is running');
+                  break;
+              }
+          }, function(error) {console.log(error);
+
+          }, function() {
+            var downloadURL = uploadTask.snapshot.downloadURL;
+            console.log(downloadURL);
+            document.getElementById('profile_picture').value=downloadURL;
+            document.getElementById('submit_profile').removeAttribute('disabled');
+          });
+
+      };
+
+      </script>
+
+
+</body>
+</html>

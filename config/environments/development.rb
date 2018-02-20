@@ -4,6 +4,8 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+ 
+
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -25,6 +27,14 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+
+    auth={
+  cloud_name:  "ddonv1h1s",
+  api_key:    "664486944788856",
+  api_secret:  "m2onKfGiB6sjkdEoJItWrY8HvVc",
+  enhance_image_tag:  true,
+  static_image_support:  false
+}
 
 config.action_mailer.default_url_options = { host: '127.0.0.1', port: 3000 }
 
