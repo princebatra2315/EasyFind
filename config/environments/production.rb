@@ -18,11 +18,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
- cloud_name: ddonv1h1s
-  api_key: '664486944788856'
-  api_secret: m2onKfGiB6sjkdEoJItWrY8HvVc
-  enhance_image_tag: true
-  static_image_support: true
 
   #
 
