@@ -11,8 +11,6 @@ gem 'rails', '~> 5.0.6'
 gem 'jquery-turbolinks'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
-gem 'fog',                     '1.40.0'
-gem 'cloudinary'
 # Use sqlite3 as the database for Active Record
 group :production, :staging do
   gem "pg"
