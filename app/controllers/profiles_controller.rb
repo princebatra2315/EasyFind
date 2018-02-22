@@ -2,7 +2,12 @@ class ProfilesController < ApplicationController
 
   #before_action :logged_in_user, only: [:create, :destroy]
 
+def index
+
+end
+
 def show
+  #@profile1=User.all
  @profile = current_user.profile
 #Cloudinary::Uploader.upload("public/uploads/test.jpeg",  :cloud_name => "ddonv1h1s")
 end

@@ -1,0 +1,12 @@
+<% @profiles=Profile.all %>
+<% @profiles.each do |profile| %>
+<%= profile.price %>
+<%= profile.allowed %>
+<%= profile.room_type %>
+<%= profile.phone %>
+<%= profile.address %>
+<%= profile.picture %>
+<br><br>
+<% end %>
+
+

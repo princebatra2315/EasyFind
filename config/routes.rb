@@ -7,7 +7,7 @@ root to: 'pages#index'
 match '/users',   to: 'users#index',   via: 'get'
 post '/profile' , to: 'profiles#create'
 get  '/profile' ,  to: 'profiles#new'
-get  '/find'    ,   to: 'profiles#show'
+get  '/find'    ,   to: 'profiles#index'
 #put  '/show'   ,  to: 'shows#show'
 resources :profiles,  only: [:create, :destroy]
 end
