@@ -17,7 +17,10 @@
   <% end %>
 </div>
 
-
+<%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
 
 <div class="container">
     <nav class="navbar navbar-inverse">
@@ -25,6 +28,7 @@
     <div class="navbar-header">
       <%= link_to 'Devise Demo', root_path, class: 'navbar-brand' %>
     </div>
+    
     <div id="navbar">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %></li>

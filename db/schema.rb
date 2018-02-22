@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217073935) do
+ActiveRecord::Schema.define(version: 20180222175808) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180217073935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "address"
+    t.string   "fname"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

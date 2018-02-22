@@ -2,8 +2,17 @@ class ProfilesController < ApplicationController
 
   #before_action :logged_in_user, only: [:create, :destroy]
 
-def index
+# def index
+#  @profiles=Profile.all.order("price")
+# end
 
+def index
+  @profiles = Profile.all
+  if params[:search]
+    @profiles = Profile.search(params[:search]).order("created_at DESC")
+  else
+    @profiles = Profile.all.order("created_at DESC")
+  end
 end
 
 def show
@@ -34,7 +43,7 @@ def create
   private
 
     def profile_params
-    params.require(:profile).permit(:price, :room_type, :phone, :details, :allowed, :address, :picture)
+    params.require(:profile).permit(:fname, :price, :room_type, :phone, :details, :allowed, :address, :picture)
     end
 
 end

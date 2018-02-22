@@ -9,6 +9,9 @@
    
   <%= form_for(@profile, url: profile_url) do |f| %>
     
+     <%= f.label :Name %>
+      <%= f.text_field :fname,class: 'form-control', placeholder: "Name Of FLAT/PG" %>
+      <br>
     
       <%= f.label :Price %>
       <%= f.text_field :price,class: 'form-control'%>

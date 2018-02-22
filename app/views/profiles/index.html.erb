@@ -1,12 +1,15 @@
-<% @profiles=Profile.all %>
+
+<!-- @profiles = @client.savings.order("year") -->
 <% @profiles.each do |profile| %>
-<%= profile.price %>
-<%= profile.allowed %>
-<%= profile.room_type %>
-<%= profile.phone %>
-<%= profile.address %>
-<%= profile.picture %>
-<br><br>
+<%= profile.fname %>
+ <%= profile.price %>
+ <%= profile.allowed %>
+ <%= profile.room_type %>
+ <%= profile.phone %>
+ <%= profile.address %>
+ <img src="<%= profile.picture %>" >
+ <br><br> 
+
 <% end %>
 
 
