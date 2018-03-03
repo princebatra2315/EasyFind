@@ -51,9 +51,10 @@
     </div>
   </div>
       <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
+      <script type="text/javascript">
+      var selectedFile;
+      function onReady(){
+          var config = {
           apiKey: "AIzaSyARSLZERWUbOj9al-p6Z1GtZ2S4laaKujk",
           authDomain: "my-first-project-92a09.firebaseapp.com",
           databaseURL: "https://my-first-project-92a09.firebaseio.com",
@@ -62,12 +63,6 @@
           messagingSenderId: "954106895298"
         };
         firebase.initializeApp(config);
-      </script>
-      <script type="text/javascript">
-      var selectedFile;
-      var pic;
-      function onReady(){
-        pic = document.getElementById("photo");
 /*        navigator.geolocation.getCurrentPosition(showPosition);
 */      };
 /*      function showPosition(position) {
@@ -75,6 +70,7 @@
       }*/
       function getfile()
       {
+          var pic = document.getElementById("photo");
           selectedFile = pic.files[0];
           console.log(selectedFile);
           document.getElementById('submit_profile').setAttribute('disabled','true');

@@ -10,7 +10,7 @@ class Profile < ApplicationRecord
   validates :address, presence: true
 
   def self.search(search)
-  where("fname LIKE ? OR address LIKE ? OR details LIKE ?",  "%#{search}%", "%#{search}%", "%#{search}%") 
+  where("fname LIKE ? OR address LIKE ? OR price LIKE ?  OR details LIKE ? ", "%#{search}%" , "%#{search}%", "%#{search}%", "%#{search}%") 
   end
 
 end

@@ -1,15 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rent room</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- @profiles = @client.savings.order("year") -->
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+*{
+	padding: 10;
+	margin: 0;
+}
+.wrapper{
+	width: 100%;
+	float:left;
+}	
+.conatiner{
+	width: 1170px;
+	margin: 0 auto;
+}
+.aman{
+	padding: 50px 0px;
+}
+.card-header h1{
+	font-size: 18px;
+	margin: 0;
+}
+.card-header h4{
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 0px;	
+}
+.card-location p{
+	padding: 14px 0px;
+	font-size: 12px;
+}
+.card-rent p{
+	padding: 0;
+	margin: 0;
+}
+.card-rent h1{
+	margin: 0;
+	padding: 8px 0px;
+	font-size: 22px;
+}
+.rupees-tag{
+	font-size: 16px;
+	margin-left: 4px;
+}
+body{
+	background: #f0f0f0;
+}
+.card-image img{
+	width: 100%;
+	float: left;
+}
+.prince{
+	background-color: #fff;
+	float: left;
+	padding: 20px;
+	border: 1px solid #007bff;
+}
+.prince:hover{
+	box-shadow: 0px 4px 14px;
+border-left: 3px solid #007bff;
+}
+</style>
+</head>
+<body>
 <% @profiles.each do |profile| %>
-<%= profile.fname %>
- <%= profile.price %>
- <%= profile.allowed %>
- <%= profile.room_type %>
- <%= profile.phone %>
- <%= profile.address %>
- <img src="<%= profile.picture %>" >
- <br><br> 
+<div class="col-md-6">
+	<div class="col-md-2"></div>
+<div class="prince">
+<div class="col-md-8">
+	<span class=card-header>
+	<h1>Shared Rooms In 1 Independent House</h1>
+	<h4>Fully Furnished | 500sq. Ft.</h4>
+</span>
+	<span class="card-location"><p>Sector 17</p></span>
+	<div class="col-md-6">
+		<span class="card-rent">
+			<p>Rent starts form</p>
+			<h1>Rs.5000/<span class="rupees-tag">bed<span></h1>
+		</span>
+	</div>
+	<div class="col-md-6">
+		<span class="card-rent">
+			<p>SD starts form</p>
+			<h1>Rs.5000</h1>
+		</span>
+	</div>
+</div>
+<div class="col-md-4">
+	<div class="row">
+	<div class="card-image">
+	<img src="image/banner.jpg" alt="image">
+</div>
+</div>
+</div>
+
+</div>
+</div>
 
 <% end %>
-
-
+</body>
+</html>
