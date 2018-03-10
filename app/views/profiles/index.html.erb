@@ -78,27 +78,22 @@ border-left: 3px solid #007bff;
 <div class="prince">
 <div class="col-md-8">
 	<span class=card-header>
-	<h1>Shared Rooms In 1 Independent House</h1>
+	<h1><%= profile.fname %></h1>
 	<h4>Fully Furnished | 500sq. Ft.</h4>
 </span>
 	<span class="card-location"><p>Sector 17</p></span>
 	<div class="col-md-6">
 		<span class="card-rent">
 			<p>Rent starts form</p>
-			<h1>Rs.5000/<span class="rupees-tag">bed<span></h1>
+			<h1><%= profile.price %><span class="rupees-tag">bed<span></h1>
 		</span>
 	</div>
-	<div class="col-md-6">
-		<span class="card-rent">
-			<p>SD starts form</p>
-			<h1>Rs.5000</h1>
-		</span>
-	</div>
+	
 </div>
 <div class="col-md-4">
 	<div class="row">
 	<div class="card-image">
-	<img src="image/banner.jpg" alt="image">
+	<img src="<%= profile.picture %>" alt="image">
 </div>
 </div>
 </div>
