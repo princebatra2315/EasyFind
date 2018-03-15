@@ -70,37 +70,106 @@ body{
 border-left: 3px solid #007bff;
 }
 </style>
+
 </head>
 <body>
-<% @profiles.each do |profile| %>
-<div class="col-md-6">
-	<div class="col-md-2"></div>
-<div class="prince">
-<div class="col-md-8">
-	<span class=card-header>
-	<h1><%= profile.fname %></h1>
-	<h4>Fully Furnished | 500sq. Ft.</h4>
-</span>
-	<span class="card-location"><p>Sector 17</p></span>
-	<div class="col-md-6">
-		<span class="card-rent">
-			<p>Rent starts form</p>
-			<h1><%= profile.price %><span class="rupees-tag">bed<span></h1>
-		</span>
-	</div>
+	<!-- # -->
+  <!-- appplying filters  -->
+  <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
+  	<%= token_tag %>
+  <div class="multiselect">
+    <div class="selectBox" ">
+      <select>
+        <option>Select an option</option>
+      </select>
+      
+        <div class="form-check">
+		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-I"> 
+		<input type="checkbox" class="custom-control-input" id="filter-1" name="I" value="1" onclick="onclickk(event)">
+		<span class="custom-control-indicator"></span>
+	    <span class="custom-control-description">1st</span>
+	    </label>
+	    </div>
+	    <div class="form-check">
+		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-II"> 
+		<input type="checkbox" class="custom-control-input" id="filter-2" name="II" value="1"  onclick="onclickk(event)">
+		<span class="custom-control-indicator"></span>
+	    <span class="custom-control-description">2nd</span>
+	    </label>
+	    </div>
+	    <div class="form-check">
+		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
+		<input type="checkbox" class="custom-control-input" id="filter-3" name="III" value="1" onclick="onclickk(event)">
+		<span class="custom-control-indicator"></span>
+	    <span class="custom-control-description">3rd</span>
+	   </label>
+	   </div>
 	
-</div>
-<div class="col-md-4">
-	<div class="row">
-	<div class="card-image">
-	<img src="<%= profile.picture %>" alt="image">
-</div>
-</div>
-</div>
+	   <div class="form-check">
+		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
+		<input type="checkbox" class="custom-control-input" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
+		<span class="custom-control-indicator"></span>
+	    <span class="custom-control-description">FLAT</span>
+	   </label>
+	   </div>
 
-</div>
-</div>
+       <div class="form-check">
+		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
+		<input type="checkbox" class="custom-control-input" id="filter-pg" name="pg" value="1" onclick="onclickk(event)">
+		<span class="custom-control-indicator"></span>
+	    <span class="custom-control-description">PG</span>
+	   </label>
+	   </div>
 
-<% end %>
+    </div>
+  </div>
+<input type="submit" style="display: none;" id="filtersubmit">
+</form>
+
+<script type="text/javascript">
+	
+	var onclickk=function(event){
+		filtersubmit=document.getElementById('filtersubmit');
+
+       filtersubmit.click();
+		
+		console.log(event.target.getAttribute('id'));
+         
+		
+	}
+</script>
+	<!--  -->
+	<div id="profilecontainer">
+		<% @profiles.each do |profile| %>
+		  <div class="col-md-6">
+		  <div class="col-md-2"></div>
+		   <div class="prince">
+		   <div class="col-md-8">
+			<span class=card-header>
+			<h1><%= profile.fname %></h1>
+			<h4>Fully Furnished | 500sq. Ft.</h4>
+		</span>
+			<span class="card-location"><p>Sector 17</p></span>
+			<div class="col-md-6">
+				<span class="card-rent">
+					<p>Rent starts form</p>
+					<h1><%= profile.price %><span class="rupees-tag">bed<span></h1>
+				</span>
+			</div>
+			
+		</div>
+		<div class="col-md-4">
+			<div class="row">
+			<div class="card-image">
+			<img src="<%= profile.picture %>" alt="image">
+		</div>
+		</div>
+		</div>
+
+		</div>
+		</div>
+
+		<% end %>
+	</div>
 </body>
 </html>

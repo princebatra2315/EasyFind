@@ -16,11 +16,6 @@
     </div>
   <% end %>
 </div>
-<!-- 
-<%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %> -->
 
   <nav class="navbar navbar-inverse">
   <div class="container">
@@ -34,6 +29,9 @@
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %></li>
       </ul>
+
+
+    
       <%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
     <%= submit_tag "Search", :name => nil %>
@@ -62,7 +60,6 @@
   </div>
 </nav>
   <%= yield %>
-
     <%= yield :top_content %>
   </body>
 </html>

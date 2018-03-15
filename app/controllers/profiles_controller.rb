@@ -2,12 +2,9 @@ class ProfilesController < ApplicationController
 
   #before_action :logged_in_user, only: [:create, :destroy]
 
-# def index
-#  @profiles=Profile.all.order("price")
-# end
-
 def index
   @profiles=Profile.all.order("price")
+
   if params[:search]
     @profiles = Profile.search(params[:search]).order("created_at DESC")
   else
@@ -15,10 +12,71 @@ def index
   end
 end
 
+
+def filter
+  @priceprofiles=[]
+  @typeprofiles=[]
+  @profiles=[]
+  @flag=0
+  if(params['I'])
+  @temp=Profile.where('price<=?', 5000)
+  @temp.each do |temp|
+    @priceprofiles<<temp
+  end
+  @flag=1
+  end
+
+ if(params['II'])
+  @temp=Profile.where('price>=?', 5000).where('price<=?', 8000)
+  @temp.each do |temp|
+    @priceprofiles<<temp
+  end
+  @flag=1
+  end
+
+ if(params['III'])
+  @temp=Profile.where('price>=?', 8000)
+  @temp.each do |temp|
+    @priceprofiles<<temp
+  end
+  @flag=1
+  end
+
+ if(params['flat'])
+  @temp=Profile.where('room_type=?', 'FLAT')
+  @temp.each do |temp|
+    @typeprofiles<<temp
+  end
+  @flag=1
+  end
+
+   if(params['pg'])
+  @temp=Profile.where('room_type=?', 'PG')
+  @temp.each do |temp|
+    @typeprofiles<<temp
+  end
+  @flag=1
+  end
+  
+
+  @profiles=(@priceprofiles | @typeprofiles)
+
+
+   @profiles=@profiles.uniq.reverse
+   
+   if(@flag==0)
+    @profiles=Profile.all
+  end
+    
+
+       respond_to do |format|
+       format.js {render :template => "profiles/filter"}
+        end
+
+end
+
 def show
-  #@profile1=User.all
  @profile = current_user.profile
-#Cloudinary::Uploader.upload("public/uploads/test.jpeg",  :cloud_name => "ddonv1h1s")
 end
 
 def new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222175808) do
+ActiveRecord::Schema.define(version: 20180315104951) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180222175808) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "price"
+    t.integer  "price"
     t.string   "room_type"
     t.string   "phone"
     t.text     "details"
