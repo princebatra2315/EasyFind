@@ -94,10 +94,10 @@ function showCheckboxes() {
   <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
   	<%= token_tag %>
   <div class="multiselect">
-    <div class="selectBox" onclick="showCheckboxes()">
+    <div class="selectBox" >
      
-      	<select>
-        <option>Sort acc. to price</option>
+      	<select onclick="showCheckboxes()">
+        <option >Sort acc. to price</option>
       </select>
          <div id="checkboxes" >
         <div class="form-check">
@@ -122,6 +122,7 @@ function showCheckboxes() {
 	   </label>
 	   </div>
 	</div>
+</div>
 	   <div class="form-check">
 		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
 		<input type="checkbox" class="custom-control-input" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
