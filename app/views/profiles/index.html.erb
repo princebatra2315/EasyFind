@@ -70,7 +70,23 @@ body{
 border-left: 3px solid #007bff;
 }
 </style>
+<script type="text/javascript">
+	
+	var expanded = false;
 
+function showCheckboxes() {
+	console.log("hello");
+  var checkboxes = document.getElementById("checkboxes");
+  
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+</script>
 </head>
 <body>
 	<!-- # -->
@@ -78,33 +94,34 @@ border-left: 3px solid #007bff;
   <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
   	<%= token_tag %>
   <div class="multiselect">
-    <div class="selectBox" ">
-      <select>
-        <option>Select an option</option>
+    <div class="selectBox" onclick="showCheckboxes()">
+     
+      	<select>
+        <option>Sort acc. to price</option>
       </select>
-      
+         <div id="checkboxes" >
         <div class="form-check">
 		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-I"> 
 		<input type="checkbox" class="custom-control-input" id="filter-1" name="I" value="1" onclick="onclickk(event)">
 		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">1st</span>
+	    <span class="custom-control-description">Less than 5000</span>
 	    </label>
 	    </div>
 	    <div class="form-check">
 		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-II"> 
 		<input type="checkbox" class="custom-control-input" id="filter-2" name="II" value="1"  onclick="onclickk(event)">
 		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">2nd</span>
+	    <span class="custom-control-description">5000-8000</span>
 	    </label>
 	    </div>
 	    <div class="form-check">
 		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
 		<input type="checkbox" class="custom-control-input" id="filter-3" name="III" value="1" onclick="onclickk(event)">
 		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">3rd</span>
+	    <span class="custom-control-description">More than 8000</span>
 	   </label>
 	   </div>
-	
+	</div>
 	   <div class="form-check">
 		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
 		<input type="checkbox" class="custom-control-input" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
@@ -128,6 +145,8 @@ border-left: 3px solid #007bff;
 
 <script type="text/javascript">
 	
+
+
 	var onclickk=function(event){
 		filtersubmit=document.getElementById('filtersubmit');
 
