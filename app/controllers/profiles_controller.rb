@@ -4,7 +4,6 @@ class ProfilesController < ApplicationController
 
 def index
   @profiles=Profile.all.order("price")
-
   if params[:search]
     @profiles = Profile.search(params[:search]).order("created_at DESC")
   else
@@ -68,7 +67,6 @@ def filter
     @profiles=Profile.all
   end
     
-
        respond_to do |format|
        format.js {render :template => "profiles/filter"}
         end
@@ -87,6 +85,8 @@ def create
   @user=current_user
   @profile = @user.create_profile(profile_params)
   @profile.picture=params['profile_picture']  
+  @profile.latitude=params['profile_lat']
+  @profile.longitude=params['profile_lng']
   if @profile.save
       flash[:success] = "Profile created!"
       redirect_to root_url
