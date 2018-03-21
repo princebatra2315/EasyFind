@@ -36,17 +36,14 @@
         <h>If you want to share your live location click live else enter your nerest popular building</h><br>
         <button onclick="getLocation();">Try it</button> 
  
-        <!-- <div id="locationField"> -->
-      <input id="autocomplete" placeholder="Enter your address"
-              type="text"></input>
+         <!-- <div id="locationField">  -->
+         <input id="autocomplete" placeholder="Enter your address"
+              type="text" onkeydown="prevententer(event);">
               <br>
         <input type="hidden" id="profile_lat" name="profile_lat">
 
         <input type="hidden" id="profile_lng" name="profile_lng">
  
-        
-
-
         <br/> 
         <%= f.label :Profile_pic %>
       
@@ -89,6 +86,14 @@ function initMap(position){
 </script>
 
 <script>
+   
+   var prevententer=function(event){
+      if(event.keyCode==13){
+        event.preventDefault();
+      }
+   }
+
+
    var placeSearch, autocomplete;
       function initAutocomplete() {
         autocomplete = new google.maps.places.Autocomplete(
@@ -96,13 +101,11 @@ function initMap(position){
             {types: ['geocode']});
          autocomplete.addListener('place_changed', fillInAddress);
       }
+      
       function fillInAddress() {
         var place = autocomplete.getPlace();
          var lat=place.geometry.location.lat();
          var lng=place.geometry.location.lng();
-         
-         console.log(lat);
-         console.log(lng);
          initMap2(lat,lng);
         for (var component in componentForm) {
           document.getElementById(component).value = '';
@@ -114,7 +117,8 @@ function initMap(position){
             var val = place.address_components[i][componentForm[addressType]];
             document.getElementById(addressType).value = val;
           }
-        } 
+        }
+
       }
        function initMap2(latt,lngg) {
         console.log(latt);
@@ -127,7 +131,7 @@ function initMap(position){
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaAUsx5VVCg_KBjhv38jeMNlz9qb8kuo4&libraries=places&callback=initAutocomplete"
         async defer>
         </script>
- -->
+ 
 
   
       <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
@@ -153,6 +157,7 @@ function initMap(position){
        var selectedFile;
       function getfile()
       {
+        console.log("hello");
           var pic = document.getElementById("photo");
           selectedFile = pic.files[0];
           console.log(selectedFile);
