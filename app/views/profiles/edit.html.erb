@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
    
-  <%= form_for(@profile, url: profile_url) do |f| %>
+  <%= form_for(@profile) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :Name %>
@@ -55,7 +55,7 @@
        <input type="file" onchange="getfile()" id="photo">
        <progress value="0" id="uploader" max="100">0%</progress>
        <br/>
-       <%= f.submit "Create Profile", class: "btn btn-primary",id: "submit_profile" %>
+       <%= f.submit "Save Changes", class: "btn btn-primary",id: "submit_profile" %>
  
       <% end %>
       

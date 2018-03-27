@@ -4,8 +4,13 @@
     <title>Easyfind</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
@@ -30,7 +35,7 @@
         <li><%= link_to 'Home', root_path %></li>
       </ul>
 
-    <%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
+    <%= form_tag(root_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
     <%= submit_tag "Search", :name => nil %>
     <% end %>
@@ -46,6 +51,9 @@
               <li><%= link_to 'User Profile', edit_user_registration_path %></li>
               <li><%= link_to "Edit FLAT/PG Profile",   '/profile' %></li>
               <li><%= link_to "See your profile",   '/profiles' %></li>
+              <% if @current_profile %>
+                <li><%= link_to "Settings", edit_profile_path(current_profile) %></li>
+             <% end %>
               <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>

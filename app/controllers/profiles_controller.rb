@@ -1,13 +1,13 @@
 class ProfilesController < ApplicationController
 
-  #before_action :logged_in_user, only: [:create, :destroy]
+  # before_action :logged_in_user, only: [:create, :destroy, :edit]
 
 def index
-  @profiles=Profile.all.order("price")
+  @profiles=Profile.paginate(:page => params[:page], per_page: 1).order("price")
   if params[:search]
-    @profiles = Profile.search(params[:search]).order("created_at DESC")
+    @profiles = Profile.paginate(:page => params[:page], per_page: 1).search(params[:search]).order("created_at DESC")
   else
-    @profiles = Profile.all.order("created_at DESC")
+    @profiles = Profile.paginate(:page => params[:page], per_page: 1).order("created_at DESC")
   end
 end
 
@@ -91,9 +91,22 @@ def create
       flash[:success] = "Profile created!"
       redirect_to root_url
       else
-        flash[:danger] =@profile.errors.full_messages
+      render 'new'
       end
   end
+
+
+  
+  def update
+  @profile=Profile.find(params[:id])
+  if @profile.update_attributes(profile_params)
+  flash[:success]="profile updated"
+  redirect_to root_path
+  else
+  render 'edit'
+  end
+  end
+
 
   def destroy
   end
