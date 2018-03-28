@@ -12,6 +12,7 @@ gem 'jquery-turbolinks'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap_jt', '~> 0.1.0'
 # Use sqlite3 as the database for Active Record
 group :production, :staging do
   gem "pg"

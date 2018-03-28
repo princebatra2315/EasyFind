@@ -1,0 +1,11 @@
+  <%= @feedback.length %>
+  <%= @feedback.each do |feedback| %>
+    <li>
+      <%= feedback.name %>
+      <%= feedback.email %>
+      <%= feedback.subject %>
+      <%= feedback.message %>
+    | <%= link_to "delete", feedback, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+    </li>
+    <% end %>

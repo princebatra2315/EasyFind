@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+.prince{
+ background-color: black;
+}
+* {
+    box-sizing: border-box;
+}
+</style>
+<body style= "background-color:#eee">
+<div class="container">
+<nav class="navbar navbar-inverse" style="margin-top:40px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Contact Us</a>
+    </div>
+  </div>
+</nav>
+<div class="col-md-1">
+  </div>
+<div class="col-md-4">
+  <%= form_for @feedback,:url => {:controller => "feedbacks", :action => "create"} do |f| %>
+  
+  <%= render 'shared/error_messages', object: f.object %>
+
+    <h4>Name</h4>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+     <%= f.text_field :name,class: 'form-control', placeholder: 'Name'%>
+    </div>
+    <h4>Email</h4>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <%= f.text_field :email,class: 'form-control', placeholder: 'E-mail'%>
+    </div>
+    <h4>Subject</h4>
+    <div class="input-group">   
+       <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+     <%= f.select :subject, ['Feedback', 'Query', 'Technical Help', 'Bug Report', 'Others',], class: 'form-control'%>
+     </div>
+    <h4>Message</h4>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+      <%= f.text_area :message,class: 'form-control', placeholder: 'Additional Info'%> 
+    </div>
+    <br>
+   <%= f.submit "Submit" %>
+  </form>
+  <br>
+  <% end %>
+	</div>
+
+<div class="col-md-2">
+</div>
+<div class="col-md-4">
+	  <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our Address</legend>
+            <address>
+                <strong>Ymca University.</strong><br>
+                Nehru Hostel <br>
+                Room No 102 <br>
+                 <h4>  <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+   Phone Numbers:-</h4>
+  
+    <li>+91 9953764100</li>
+    <li>+91 9034731981</li>
+<br>
+<h4> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+   Social Links:-</h4>
+  
+    <a href="https://www.facebook.com/prince.batra.106"><li>https://www.facebook.com/prince.batra.106</li></a>
+    <a href="https://www.instagram.com/prince__batra23/"><li>https://www.instagram.com/prince__batra23</li></a>
+            </address>
+            <address>
+                <strong>Mail us at</strong><br>
+                <a href="mailto:contact@ymcamart.com">princebatra2315@gmail.com</a>
+            </address>
+            </form>
+  	</div>
+
+
+</div>
+</body>
+</html>

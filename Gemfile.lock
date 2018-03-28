@@ -46,6 +46,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_jt (0.1.0)
     builder (3.2.3)
     byebug (10.0.0)
     carrierwave (1.2.2)
@@ -196,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  bootstrap_jt (~> 0.1.0)
   byebug
   carrierwave (= 1.2.2)
   coffee-rails (~> 4.2)
