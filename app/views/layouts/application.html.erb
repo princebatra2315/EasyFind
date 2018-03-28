@@ -35,7 +35,7 @@
         <li><%= link_to 'Home', root_path %></li>
       </ul>
 
-    <%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
+    <%= form_tag(root_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
     <%= submit_tag "Search", :name => nil %>
     <% end %>
