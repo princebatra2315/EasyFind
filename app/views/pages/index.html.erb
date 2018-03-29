@@ -1,4 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
 <% content_for :top_content do %>
+<div style="width: 75%; margin: auto;">
+      <div class="alert alert-success text-center alert-dismissible" role="alert">
+        If you are a PG/Flat owner. You can register yours <%= link_to 'here', new_user_registration_path %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+
   <div class="jumbotron">
     <div class="container">
       <h1>Welcome!</h1>
@@ -9,3 +21,6 @@
     </div>
   </div>
 <% end %>
+
+</body>
+</html>
