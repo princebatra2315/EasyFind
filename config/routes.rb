@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/profile' ,  to: 'profiles#create'
   get  '/profile' ,  to: 'profiles#new'
   get  '/profiles' ,   to: 'profiles#index'
-  post '/profiles/filter' ,  to: 'profiles#filter'
+  post '/profiles/filter' ,  to: 'profiles#filter' 
   get  '/about',     to: 'pages#about'
   get  '/contact',   to: 'feedbacks#new'
   get  '/help',       to: 'pages#help'

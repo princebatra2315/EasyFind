@@ -68,8 +68,8 @@ def filter
   end
     
        respond_to do |format|
-       format.js {render :template => "profiles/filter"}
-        end
+        format.js {render :template => "profiles/filter"}
+      end
 
 end
 

@@ -8,3 +8,61 @@
 .alert-notice {
   @extend .alert-info;
 }
+*{
+	padding: 10;
+	margin: 0;
+}
+.wrapper{
+	width: 100%;
+	float:left;
+}	
+.conatiner{
+	width: 1170px;
+	margin: 0 auto;
+}
+.aman{
+	padding: 50px 0px;
+}
+.card-header h1{
+	font-size: 18px;
+	margin: 0;
+}
+.card-header h4{
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 0px;	
+}
+.card-location p{
+	padding: 14px 0px;
+	font-size: 12px;
+}
+.card-rent p{
+	padding: 0;
+	margin: 0;
+}
+.card-rent h1{
+	margin: 0;
+	padding: 8px 0px;
+	font-size: 22px;
+}
+.rupees-tag{
+	font-size: 16px;
+	margin-left: 4px;
+}
+body{
+	background: #f0f0f0;
+}
+.card-image img{
+	width: 100%;
+	float: left;
+}
+.prince{
+	background-color: #fff;
+	float: left;
+	padding: 20px;
+	border: 1px solid #007bff;
+}
+.prince:hover{
+	box-shadow: 0px 4px 14px;
+border-left: 3px solid #007bff;
+}
