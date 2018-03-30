@@ -38,14 +38,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><%= link_to 'Home', root_path %> <span class="sr-only">(current)</span></li>
-            <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/about">Developer Page</a></li>
-      <li><a href="/help">Help</a></li>
-      </ul>
-  </li>
+            <li><a href="#">Link</a></li>
           </ul>
           <div class="navbar-form navbar-right">
             <%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
@@ -56,8 +49,8 @@
           </div>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'Login', new_user_session_path %></li>
-            <li ><%= link_to 'List your PG/Flat', new_user_registration_path %></li>
-            <li><%= link_to 'Check PGs/Flats', profiles_path %></li>
+            <li><%= link_to 'Register', new_user_registration_path %></li>
+            <li><a href="#" style="color: #222">List your PG/Flat</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
