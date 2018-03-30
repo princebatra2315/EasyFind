@@ -3,11 +3,11 @@ class ProfilesController < ApplicationController
   # before_action :logged_in_user, only: [:create, :destroy, :edit]
 
 def index
-  @profiles=Profile.paginate(:page => params[:page], per_page: 1).order("price")
+  @profiles=Profile.paginate(:page => params[:page], per_page: 2).order("price")
   if params[:search]
-    @profiles = Profile.paginate(:page => params[:page], per_page: 1).search(params[:search]).order("created_at DESC")
+    @profiles = Profile.paginate(:page => params[:page], per_page: 2).search(params[:search]).order("created_at DESC")
   else
-    @profiles = Profile.paginate(:page => params[:page], per_page: 1).order("created_at DESC")
+    @profiles = Profile.paginate(:page => params[:page], per_page: 2).order("created_at DESC")
   end
 end
 

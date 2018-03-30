@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>rent room</title>
+  <title>rent room</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -12,70 +12,70 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 *{
-	padding: 10;
-	margin: 0;
+  padding: 10;
+  margin: 0;
 }
 .wrapper{
-	width: 100%;
-	float:left;
-}	
+  width: 100%;
+  float:left;
+} 
 .conatiner{
-	width: 1170px;
-	margin: 0 auto;
+  width: 1170px;
+  margin: 0 auto;
 }
 .aman{
-	padding: 50px 0px;
+  padding: 50px 0px;
 }
 .card-header h1{
-	font-size: 18px;
-	margin: 0;
+  font-size: 18px;
+  margin: 0;
 }
 .card-header h4{
-	font-size: 14px;
-	margin: 0;
-	padding: 5px 0px;	
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 0px; 
 }
 .card-location p{
-	padding: 14px 0px;
-	font-size: 12px;
+  padding: 14px 0px;
+  font-size: 12px;
 }
 .card-rent p{
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .card-rent h1{
-	margin: 0;
-	padding: 8px 0px;
-	font-size: 22px;
+  margin: 0;
+  padding: 8px 0px;
+  font-size: 22px;
 }
 .rupees-tag{
-	font-size: 16px;
-	margin-left: 4px;
+  font-size: 16px;
+  margin-left: 4px;
 }
 body{
-	background: #f0f0f0;
+  background: #f0f0f0;
 }
 .card-image img{
-	width: 100%;
-	float: left;
+  width: 100%;
+  float: left;
 }
 .prince{
-	background-color: #fff;
-	float: left;
-	padding: 20px;
-	border: 1px solid #007bff;
+  background-color: #fff;
+  float: left;
+  padding: 20px;
+  border: 1px solid #007bff;
 }
 .prince:hover{
-	box-shadow: 0px 4px 14px;
+  box-shadow: 0px 4px 14px;
 border-left: 3px solid #007bff;
 }
 </style>
 <script type="text/javascript">
-	
-	var expanded = false;
+  
+  var expanded = false;
 
 function showCheckboxes() {
-	console.log("hello");
+  console.log("hello");
   var checkboxes = document.getElementById("checkboxes");
   
   if (!expanded) {
@@ -89,55 +89,55 @@ function showCheckboxes() {
 </script>
 </head>
 <body>
-	<!-- # -->
+  <!-- # -->
   <!-- appplying filters  -->
-  <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
-  	<%= token_tag %>
+  <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">    
+    <%= token_tag %>
   <div class="multiselect">
     <div class="selectBox" >
      
-      	<select onclick="showCheckboxes()">
+        <select onclick="showCheckboxes()">
         <option >Sort acc. to price</option>
       </select>
          <div id="checkboxes" >
         <div class="form-check">
-		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-I"> 
-		<input type="checkbox" class="custom-control-input" id="filter-1" name="I" value="1" onclick="onclickk(event)">
-		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">Less than 5000</span>
-	    </label>
-	    </div>
-	    <div class="form-check">
-		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-II"> 
-		<input type="checkbox" class="custom-control-input" id="filter-2" name="II" value="1"  onclick="onclickk(event)">
-		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">5000-8000</span>
-	    </label>
-	    </div>
-	    <div class="form-check">
-		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
-		<input type="checkbox" class="custom-control-input" id="filter-3" name="III" value="1" onclick="onclickk(event)">
-		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">More than 8000</span>
-	   </label>
-	   </div>
-	</div>
+    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-I"> 
+    <input type="checkbox" class="custom-control-input" id="filter-1" name="I" value="1" onclick="onclickk(event)">
+    <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Less than 5000</span>
+      </label>
+      </div>
+      <div class="form-check">
+    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-II"> 
+    <input type="checkbox" class="custom-control-input" id="filter-2" name="II" value="1"  onclick="onclickk(event)">
+    <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">5000-8000</span>
+      </label>
+      </div>
+      <div class="form-check">
+    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
+    <input type="checkbox" class="custom-control-input" id="filter-3" name="III" value="1" onclick="onclickk(event)">
+    <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">More than 8000</span>
+     </label>
+     </div>
+  </div>
 </div>
-	   <div class="form-check">
-		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
-		<input type="checkbox" class="custom-control-input" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
-		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">FLAT</span>
-	   </label>
-	   </div>
+     <div class="form-check">
+    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
+    <input type="checkbox" class="custom-control-input" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
+    <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">FLAT</span>
+     </label>
+     </div>
 
        <div class="form-check">
-		<label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
-		<input type="checkbox" class="custom-control-input" id="filter-pg" name="pg" value="1" onclick="onclickk(event)">
-		<span class="custom-control-indicator"></span>
-	    <span class="custom-control-description">PG</span>
-	   </label>
-	   </div>
+    <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0" id="filter-III"> 
+    <input type="checkbox" class="custom-control-input" id="filter-pg" name="pg" value="1" onclick="onclickk(event)">
+    <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">PG</span>
+     </label>
+     </div>
 
     </div>
   </div>
@@ -145,52 +145,52 @@ function showCheckboxes() {
 </form>
 
 <script type="text/javascript">
-	
+  
 
 
-	var onclickk=function(event){
-		filtersubmit=document.getElementById('filtersubmit');
+  var onclickk=function(event){
+    filtersubmit=document.getElementById('filtersubmit');
 
        filtersubmit.click();
-		
-		console.log(event.target.getAttribute('id'));
+    
+    console.log(event.target.getAttribute('id'));
          
-		
-	}
+    
+  }
 </script>
-	<!--  -->
-	<div id="profilecontainer">
-		<% @profiles.each do |profile| %>
-		  <div class="col-md-6">
-		  <div class="col-md-2"></div>
-		   <div class="prince">
-		   <div class="col-md-8">
-			<span class=card-header>
-			<h1><%= profile.fname %></h1>
-			<h4>Fully Furnished | 500sq. Ft.</h4>
-		</span>
-			<span class="card-location"><p>Sector 17</p></span>
-			<div class="col-md-6">
-				<span class="card-rent">
-					<p>Rent starts form</p>
-					<h1><%= profile.price %><span class="rupees-tag">bed<span></h1>
-				</span>
-			</div>
-			
-		</div>
-		<div class="col-md-4">
-			<div class="row">
-			<div class="card-image">
-			<img src="<%= profile.picture %>" alt="image">
-		</div>
-		</div>
-		</div>
+  <!--  -->
+  <div id="profilecontainer">
+    <% @profiles.each do |profile| %>
+      <div class="col-md-6">
+      <div class="col-md-2"></div>
+       <div class="prince">
+       <div class="col-md-8">
+      <span class=card-header>
+      <h1><%= profile.fname %></h1>
+      <h4>Fully Furnished | 500sq. Ft.</h4>
+    </span>
+      <span class="card-location"><p>Sector 17</p></span>
+      <div class="col-md-6">
+        <span class="card-rent">
+          <p>Rent starts form</p>
+          <h1><%= profile.price %><span class="rupees-tag">bed<span></h1>
+        </span>
+      </div>
+      
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+      <div class="card-image">
+      <img src="<%= profile.picture %>" alt="image">
+    </div>
+    </div>
+    </div>
 
-		</div>
-		</div>
+    </div>
+    </div>
 
-		<% end %>
-		<%= will_paginate @profiles %>
-	</div>
+    <% end %>
+    <%= will_paginate @profiles %>
+  </div>
 </body>
 </html>
