@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get  '/profile' ,  to: 'profiles#new'
   get  '/profiles' ,   to: 'profiles#index'
   post '/profiles/filter' ,  to: 'profiles#filter'
-  get  '/about',     to: 'pages#contact'
+  get  '/about',     to: 'pages#about'
   get  '/contact',   to: 'feedbacks#new'
   get  '/help',       to: 'pages#help'
   post  '/contact',  to: 'feedbacks#create'
