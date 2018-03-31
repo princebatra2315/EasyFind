@@ -16,6 +16,7 @@ end
 def filter
   @priceprofiles=[]
   @typeprofiles=[]
+  @allowedprofiles=[]
   @profiles=[]
   @flag=0
   if(params['I'])
@@ -42,6 +43,30 @@ def filter
   @flag=1
   end
 
+  if(params['boys'])
+  @temp=Profile.where('allowed=?', 'Only Boys')
+  @temp.each do |temp|
+    @allowedprofiles<<temp
+  end
+  @flag=1
+  end
+
+  if(params['girls'])
+  @temp=Profile.where('allowed=?', 'Only Girls')
+  @temp.each do |temp|
+    @allowedprofiles<<temp
+  end
+  @flag=1
+  end
+
+    if(params['both'])
+  @temp=Profile.where('allowed=?', 'Both')
+  @temp.each do |temp|
+    @allowedprofiles<<temp
+  end
+  @flag=1
+  end
+
  if(params['flat'])
   @temp=Profile.where('room_type=?', 'FLAT')
   @temp.each do |temp|
@@ -59,7 +84,7 @@ def filter
   end
   
 
-  @profiles=(@priceprofiles | @typeprofiles)
+  @profiles=(@priceprofiles | @typeprofiles | @allowedprofiles)
 
 
    @profiles=@profiles.uniq.reverse

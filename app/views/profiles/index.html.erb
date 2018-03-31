@@ -129,21 +129,52 @@ label{
                     </label>
                   </div>
                 </div>
-
   						</div>
   					</div>
   				</div><br/>
-
-          <div id="allowed-accordian" role="tablist">
+             <div id="allowed-accordian" role="tablist">
   					<div class="card">
   						<div class="card-header" role="tab" id="">
   							<p class="mb-0 ">
-  								Price
+  								Allowed
                   <a style="float:right;" data-toggle="collapse" href="#allowed" aria-expanded="true" aria-controls="allowed">&darr;</a>
   							</p>
   						</div>
 
   						<div id="allowed" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#allowed-accordian">
+                <div class="card-body">
+                  <div class="form-check pb-2 pl-3">
+                    <input class="form-check-input" type="checkbox"  id="filter-boys" name="boys" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Boys
+                    </label>
+                  </div>
+                  <div class="form-check pb-2 pl-3">
+                    <input class="form-check-input" type="checkbox" id="filter-girls" name="girls" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck2">
+                      Girls
+                    </label>
+                  </div>
+                  <div class="form-check pl-3">
+                    <input class="form-check-input" type="checkbox" id="filter-both" name="both" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck3">
+                      Both
+                    </label>
+                  </div>
+                </div>
+  						</div>
+  					</div>
+  				</div><br/>  
+          <div id="price-accordian" role="tablist">
+  					<div class="card">
+  						<div class="card-header" role="tab" id="">
+  							<p class="mb-0 ">
+  								Price
+                  <a style="float:right;" data-toggle="collapse" href="#price" aria-expanded="true" aria-controls="price">&darr;</a>
+  							</p>
+  						</div>
+
+  						<div id="price" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#price-accordian">
                 <div class="card-body">
                   <div class="form-check pb-2 pl-3">
                     <input class="form-check-input" type="checkbox"  id="filter-1" name="I" value="1" onclick="onclickk(event)">
