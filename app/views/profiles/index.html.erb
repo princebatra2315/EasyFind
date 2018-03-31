@@ -218,7 +218,11 @@ label{
             <div class="col-md-6 col-sm-6 col-xs-12" align='middle'>
               <div class="card m-4" style="width: 80%;">
                 <!-- <img class="card-img-top" src="./assets/images/home.jpg" height="180px" width="320px" alt="Card image cap"> -->
+                <% if profile.picture!="" %>
                 <div class="card-img-top" style="background: url('<%= profile.picture %>') no-repeat; height: 180px; width: 100%;"></div>
+                <% else %>
+                <div class="card-img-top" style="background: url('/default.jpg') no-repeat; height: 180px; width: 100%;"></div>
+               <% end %>
                 <div class="card-body text-left">
                   <h5 class="name"><%= profile.fname %></h5>
                   <div class="address"><%= profile.address %></div>
