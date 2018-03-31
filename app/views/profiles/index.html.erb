@@ -1,85 +1,211 @@
 <style>
-*{
-	padding: 10;
-	margin: 0;
-}
-.wrapper{
-	width: 100%;
-	float:left;
-}	
-.conatiner{
-	width: 1170px;
-	margin: 0 auto;
-}
-.aman{
-	padding: 50px 0px;
-}
-.card-header h1{
-	font-size: 18px;
-	margin: 0;
-}
-.card-header h4{
-	font-size: 14px;
-	margin: 0;
-	padding: 5px 0px;	
-}
-.card-location p{
-	padding: 14px 0px;
-	font-size: 12px;
-}
-.card-rent p{
-	padding: 0;
-	margin: 0;
-}
-.card-rent h1{
-	margin: 0;
-	padding: 8px 0px;
-	font-size: 22px;
-}
-.rupees-tag{
-	font-size: 16px;
-	margin-left: 4px;
-}
-body{
-	background: #f0f0f0;
-}
-.card-image img{
-	width: 100%;
-	float: left;
-}
-.prince{
-	background-color: #fff;
-	float: left;
-	padding: 20px;
-	border: 1px solid #007bff;
-}
-.prince:hover{
-	box-shadow: 0px 4px 14px;
-border-left: 3px solid #007bff;
+html{
+  font-size: 16px;
 }
 
+.w-75{
+  width: 75;
+}
+.p-2{padding: 10px;}
+.p-3{padding: 15px;}
+.p-4{padding: 20px;}
+
+.pb-1{padding-bottom: 5px;}
+.pb-2{padding-bottom: 10px;}
+
+.m-4{
+  margin: 20px;
+}
+
+.bg-light{background-color: #eee;}
+
+label{
+  font-weight: normal;
+}
+
+.sidebar-heading{
+  font-size: 1.1rem;
+}
+
+.categories a{
+  color: #555;
+}
+
+.card{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+.card-header{
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+  padding: 0.65rem 1rem 0.3rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  word-wrap: break-word;
+  background-color: rgba(0,0,0,.03);
+}
+
+.card-body{
+  padding: 1rem;
+}
+
+.card-img-top{
+  background-size: cover !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 180px;
+  width: 320px;
+}
+
+.cat-list-item{
+  font-size: 0.9rem;
+}
+
+.filter-list-item{
+  border: 0px;
+}
+
+.name{
+  font-size: 1.5rem;
+  color: #555;
+}
+.address{
+  font-size: 12px;
+  color: #999;
+  margin-top: -0.3rem;
+}
+.price{
+  font-size: 18px;
+  color: #888;
+}
 </style>
 <script type="text/javascript">
-	
-	var expanded = false;
-
-function showCheckboxes() {
-	console.log("hello");
-  var checkboxes = document.getElementById("checkboxes");
-  
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
+	var onclickk=function(event){
+		filtersubmit=document.getElementById('filtersubmit');
+       filtersubmit.click();
+		console.log(event.target.getAttribute('id'));
+	}
 </script>
+    <div class="container mt-3">
+      <div class="row no-gutters">
 
-	<!-- # -->
+        <div class="col-md-3 col-lg-3">
+        <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
+  	<%= token_tag %>
+          <div class="sidebar-heading">Sort</div><hr/>
+          <ul class="list-group categories">
+            <li class="list-group-item cat-list-item"><a class="text-dark" href="">Price low to high</a></li>
+            <li class="list-group-item cat-list-item"><a class="text-dark" href="">Price hight to low</a></li>
+          </ul>
+
+          <br/>
+          <div class="sidebar-heading">Filters</div><hr/>
+          <div id="categories-accordion" role="tablist">
+  					<div class="card">
+  						<div class="card-header" role="tab" id="">
+  							<p class="mb-0">
+  								Categories
+                  <a style="float:right;" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">&darr;</a>
+  							</p>
+  						</div>
+
+  						<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#categories-accordion">
+                <div class="card-body">
+                  <div class="form-check pb-2 pl-3">
+                    <input class="form-check-input" type="checkbox" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Flat
+                    </label>
+                  </div>
+                  <div class="form-check pb-2 pl-3">
+                    <input class="form-check-input" type="checkbox" id="filter-pg" name="pg" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck2">
+                      PG
+                    </label>
+                  </div>
+                  <div class="form-check pl-3">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                    <label class="form-check-label" for="defaultCheck3">
+                      Both
+                    </label>
+                  </div>
+                </div>
+
+  						</div>
+  					</div>
+  				</div><br/>
+
+          <div id="allowed-accordian" role="tablist">
+  					<div class="card">
+  						<div class="card-header" role="tab" id="">
+  							<p class="mb-0 ">
+  								Price
+                  <a style="float:right;" data-toggle="collapse" href="#allowed" aria-expanded="true" aria-controls="allowed">&darr;</a>
+  							</p>
+  						</div>
+
+  						<div id="allowed" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#allowed-accordian">
+                <div class="card-body">
+                  <div class="form-check pb-2 pl-3">
+                    <input class="form-check-input" type="checkbox"  id="filter-1" name="I" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Less than 5000
+                    </label>
+                  </div>
+                  <div class="form-check pb-2 pl-3">
+                    <input class="form-check-input" type="checkbox" id="filter-2" name="II" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck2">
+                      5000-8000
+                    </label>
+                  </div>
+                  <div class="form-check pl-3">
+                    <input class="form-check-input" type="checkbox" id="filter-3" name="III" value="1" onclick="onclickk(event)">
+                    <label class="form-check-label" for="defaultCheck3">
+                      More than 8000
+                    </label>
+                  </div>
+                </div>
+  						</div>
+  					</div>
+  				</div><br/>
+            <input type="submit" style="display: none;" id="filtersubmit">
+         </form>
+        </div>
+
+
+        <div class="col-md-9 col-lg-9">
+
+          <div class="row no-gutters p-3 mt-4">
+            <div class="col-md-12">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb p-3">
+                  <li class="breadcrumb-item active" aria-current="page">PGs and Flats</li>
+                </ol>
+              </nav>
+            </div>
+            <div id="profilecontainer">
+            <% @profiles.each do |profile| %>
+            <div class="col-md-6 col-sm-6 col-xs-12" align='middle'>
+              <div class="card m-4" style="width: 80%;">
+                <!-- <img class="card-img-top" src="./assets/images/home.jpg" height="180px" width="320px" alt="Card image cap"> -->
+                <div class="card-img-top" style="background: url('<%= profile.picture %>') no-repeat; height: 180px; width: 100%;"></div>
+                <div class="card-body text-left">
+                  <h5 class="name"><%= profile.fname %></h5>
+                  <div class="address"><%= profile.address %></div>
+                  <h6 class="price pt-2"><%= profile.price %></h6>
+                  <!-- <h6>Amenities</h6>
+                  <p>To be added</p> -->
+                </div>
+              </div>
+            </div>
+            <% end %>
+        </div>
+          </div>
+      </div>
+  </div>
+</div>
+
   <!-- appplying filters  -->
-  <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
+  <!-- <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">		
   	<%= token_tag %>
   <div class="multiselect">
     <div class="selectBox" >
@@ -138,40 +264,6 @@ function showCheckboxes() {
        filtersubmit.click();
 		console.log(event.target.getAttribute('id'));
 	}
-</script>
+</script> -->
 	<!--  -->
-	<div id="profilecontainer">
-		<% @profiles.each do |profile| %>
-		  <div class="col-md-6">
-		  <div class="col-md-2"></div>
-		   <div class="prince">
-		   <div class="col-md-8">
-			<span class=card-header>
-			<h1><%= profile.fname %></h1>
-			<h4>Fully Furnished | 500sq. Ft.</h4>
-		</span>
-			<span class="card-location"><p>Sector 17</p></span>
-			<div class="col-md-6">
-				<span class="card-rent">
-					<p>Rent starts form</p>
-					<h1><%= profile.price %><span class="rupees-tag">bed<span></h1>
-				</span>
-			</div>
-			
-		</div>
-		<div class="col-md-4">
-			<div class="row">
-			<div class="card-image">
-			<img src="<%= profile.picture %>" alt="image">
-		</div>
-		</div>
-		</div>
-
-		</div>
-		</div>
-
-		<% end %>
-		<%= will_paginate @profiles %>
-	</div>
-</body>
-</html>
+	
