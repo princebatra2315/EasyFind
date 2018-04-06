@@ -1,4 +1,94 @@
-<div style="text-align: center;">
-<h1> Welcome to Developer Page</h1>
-<h2>We are Working On it</h2>
+<style type="text/css">
+		.cnt{
+			display: block;
+		}
+		.dev{
+			height : 400px;
+			float: left;
+			width: 43.5%;
+			margin: 3%;
+			text-align: center;
+			background-image:url(banner.jpg);
+			background-repeat: no repeat;
+			background-size: cover;
+			font-family: Montserrat, sans-serif;
+			font-weight: 700;
+		}
+		
+		.dev p{
+			position: relative;
+			top:30%;
+			left : 0%;
+			text-align: center;
+		}
+		.developer{
+			display: block;
+			clear: both;
+			background-color: #f0f0f5;
+			overflow: hidden;
+			border-radius: 5px;
+			margin:3%;
+		}
+		@media(max-width: 600px)
+		{
+			.dev{
+				width: 94%;
+				margin:3%;
+			}
+			.dev1{
+				display: block;
+				clear: both;
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		var i=0;
+var txt = ' I am Prince Batra.I develop and build web applications';
+var speed = 55;
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+	var j=0;
+var txt1 = ' Hi, I am Mohit Yadav. I design and build user interface';
+function typeWriter1() {
+  if (j < txt1.length) {
+    document.getElementById("demo1").innerHTML += txt1.charAt(j);
+    j++;
+    setTimeout(typeWriter1, speed);
+  }
+}
+	</script>
+</head>
+<body>
+	<div class="cnt">
+	<div class="dev" onmouseover ="typeWriter()">
+			<p id="demo" style="font-size : 40px; color: white; "></p>
+	</div>
+	<div class="dev" onmouseover ="typeWriter1()">
+			<p id="demo1" style="font-size : 40px;  color: white;"></p>
+	</div>
+
 </div>
+<div class= "developer" >
+	<div class="dev1" >
+		<img width ="200px" height ="200px" src="picture.jpg" style = "margin : 3%;float: left; ">
+		
+		<div style="margin : 3%;float: left;"> <strong>PRINCE BATRA</strong>
+			<br> 
+			Facebook : <a href="https://www.facebook.com/prince.batra.106">Prince Batra</a><br>
+			linkedin: <a href="https://www.linkedin.com/in/prince-batra-a38b35118">Prince Batra</a><br>
+			Github : <a href="https://github.com/princebatra2315">Prince Batra</a><br>
+	</div>
+	<div class="dev1">
+		<img width ="200px" height ="200px" src="picture.jpg" style = "margin : 3%;float: left; ">
+		<div style="margin : 3%;float: left;"> <strong>Mohit Yadav</strong>
+			<br> 
+			Facebook : <a href="https://www.facebook.com/mohityadav21">Mohit Yadav</a><br>
+			linkedin: <a href="www.facebook.com">Mohit Yadav</a><br>
+			Github : <a href="https://github.com/mohityadav7">Mohit Yadav</a><br>
+	</div>
+	</div>
