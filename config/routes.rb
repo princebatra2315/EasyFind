@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  '/about',     to: 'pages#about'
   get  '/contact',   to: 'feedbacks#new'
   get  '/help',       to: 'pages#help'
+  get  '/faq',       to: 'pages#faq'
   post  '/contact',  to: 'feedbacks#create'
   get   '/feedback', to:  'feedbacks#index'
   
