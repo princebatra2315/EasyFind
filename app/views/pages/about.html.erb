@@ -1,94 +1,295 @@
 <style type="text/css">
-		.cnt{
-			display: block;
-		}
-		.dev{
-			height : 400px;
-			float: left;
-			width: 43.5%;
-			margin: 3%;
-			text-align: center;
-			background-image:url(banner.jpg);
-			background-repeat: no repeat;
-			background-size: cover;
-			font-family: Montserrat, sans-serif;
-			font-weight: 700;
-		}
-		
-		.dev p{
-			position: relative;
-			top:30%;
-			left : 0%;
-			text-align: center;
-		}
-		.developer{
-			display: block;
-			clear: both;
-			background-color: #f0f0f5;
-			overflow: hidden;
-			border-radius: 5px;
-			margin:3%;
-		}
-		@media(max-width: 600px)
-		{
-			.dev{
-				width: 94%;
-				margin:3%;
-			}
-			.dev1{
-				display: block;
-				clear: both;
-			}
-		}
-	</style>
-	<script type="text/javascript">
-		var i=0;
-var txt = ' I am Prince Batra.I develop and build web applications';
-var speed = 55;
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
+ body, html{
+  padding: 0;
+  margin: 0;
 }
-	var j=0;
-var txt1 = ' Hi, I am Mohit Yadav. I design and build user interface';
-function typeWriter1() {
-  if (j < txt1.length) {
-    document.getElementById("demo1").innerHTML += txt1.charAt(j);
-    j++;
-    setTimeout(typeWriter1, speed);
-  }
-}
-	</script>
-</head>
-<body>
-	<div class="cnt">
-	<div class="dev" onmouseover ="typeWriter()">
-			<p id="demo" style="font-size : 40px; color: white; "></p>
-	</div>
-	<div class="dev" onmouseover ="typeWriter1()">
-			<p id="demo1" style="font-size : 40px;  color: white;"></p>
-	</div>
 
-</div>
-<div class= "developer" >
-	<div class="dev1" >
-		<img width ="200px" height ="200px" src="picture.jpg" style = "margin : 3%;float: left; ">
-		
-		<div style="margin : 3%;float: left;"> <strong>PRINCE BATRA</strong>
-			<br> 
-			Facebook : <a href="https://www.facebook.com/prince.batra.106">Prince Batra</a><br>
-			linkedin: <a href="https://www.linkedin.com/in/prince-batra-a38b35118">Prince Batra</a><br>
-			Github : <a href="https://github.com/princebatra2315">Prince Batra</a><br>
-	</div>
-	<div class="dev1">
-		<img width ="200px" height ="200px" src="picture.jpg" style = "margin : 3%;float: left; ">
-		<div style="margin : 3%;float: left;"> <strong>Mohit Yadav</strong>
-			<br> 
-			Facebook : <a href="https://www.facebook.com/mohityadav21">Mohit Yadav</a><br>
-			linkedin: <a href="www.facebook.com">Mohit Yadav</a><br>
-			Github : <a href="https://github.com/mohityadav7">Mohit Yadav</a><br>
-	</div>
-	</div>
+body{
+  background-image: linear-gradient(to right, #007991, #78ffd6);
+}
+
+.developer{
+  background: #ffffff50;
+  margin: 40px 0;
+  height: auto;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 30px;
+}
+.dev-designation{
+  font-size: 20px;
+
+}
+.developer hr{
+  background: #666;
+}
+
+.dev-img-container{
+  display: block;
+}
+
+.dev-img{
+  height: 140px;
+  width: 140px;
+  display: block;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+.dev-description{
+  padding: 20px 0;
+  color: #000;
+  font-size: 18px;
+  font-family: ;
+}
+
+.dev-links{
+  margin: 40px 0 0 0;
+}
+
+
+
+
+
+@charset "UTF-8";
+@font-face {
+  font-family: 'icomoon';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.eot?3qkin2");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.eot?#iefix3qkin2") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.woff?3qkin2") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.ttf?3qkin2") format("truetype"), url("fhttps://s3-us-west-2.amazonaws.com/s.cdpn.io/93/icomoon.svg?3qkin2#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.social-networks {
+  margin: 0 0;
+  padding: 0;
+  font-size: 0;
+  text-align: center;
+}
+.social-networks li {
+  display: inline-block;
+}
+.social-networks a {
+  display: block;
+  position: relative;
+  margin: 0 7px;
+  width: 68px;
+  height: 68px;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+  text-decoration: none;
+}
+.social-networks a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  margin-top: -50%;
+  margin-left: -50%;
+  border-radius: 100px;
+  background-color: #1f2027;
+  transition: all 400ms;
+}
+.social-networks a:after {
+  position: relative;
+  display: block;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: #fff;
+  font-size: 26px;
+  line-height: 66px;
+}
+.social-networks a:hover, .social-networks a:focus {
+  text-decoration: none;
+}
+.social-networks.spin-icon a:hover:after, .social-networks.spin-icon a:focus:after {
+  transition: -webkit-transform 0.4s ease-out;
+  transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg);
+}
+.social-networks.square a:hover:before, .social-networks.square a:focus:before {
+  border-radius: 0;
+}
+.social-networks.bounce a:hover, .social-networks.bounce a:focus {
+  -webkit-animation: bounce 1s;
+          animation: bounce 1s;
+}
+.social-networks .icon-linkedin:after {
+  content: "";
+}
+.social-networks .icon-linkedin:hover:before, .social-networks .icon-linkedin:focus:before {
+  background: #0077b5;
+}
+.social-networks .icon-facebook:after {
+  content: "";
+}
+.social-networks .icon-facebook:hover:before, .social-networks .icon-facebook:focus:before {
+  background: #3b5998;
+}
+.social-networks .icon-twitter:after {
+  content: "";
+}
+.social-networks .icon-twitter:hover:before, .social-networks .icon-twitter:focus:before {
+  background: #00b0ed;
+}
+.social-networks .icon-github:after {
+  content: "";
+}
+.social-networks .icon-github:hover:before, .social-networks .icon-github:focus:before {
+  background: #4183c4;
+}
+.social-networks .icon-instagram:after {
+  content: "";
+}
+.social-networks .icon-instagram:hover:before, .social-networks .icon-instagram:focus:before {
+  background: #3f729b;
+}
+.social-networks .icon-vimeo:after {
+  content: "";
+}
+.social-networks .icon-vimeo:hover:before, .social-networks .icon-vimeo:focus:before {
+  background: #1ab7ea;
+}
+.social-networks .icon-twitch:after {
+  content: "";
+}
+.social-networks .icon-twitch:hover:before, .social-networks .icon-twitch:focus:before {
+  background: #6441a5;
+}
+.social-networks .icon-pinterest:after {
+  content: "";
+}
+.social-networks .icon-pinterest:hover:before, .social-networks .icon-pinterest:focus:before {
+  background: #cc2127;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  40% {
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -6px, 0);
+            transform: translate3d(0, -6px, 0);
+  }
+  70% {
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -4px, 0);
+            transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -2px, 0);
+            transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  40% {
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -6px, 0);
+            transform: translate3d(0, -6px, 0);
+  }
+  70% {
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -4px, 0);
+            transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -2px, 0);
+            transform: translate3d(0, -2px, 0);
+  }
+/*
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+a:hover {
+  color: #7ba9d6;
+} */
+
+
+</style>
+    <div class="developer">
+      <div class="dev-img-container">
+        <img class="dev-img" src="https://ak0.picdn.net/shutterstock/videos/14179190/thumb/1.jpg?i10c=img.resize(height:160)" alt="developer image">
+      </div>
+      <div class="dev-description text-center">
+        <div class="dev-name">
+          <h1>Prince Batra</h1>
+          <span class="dev-designation">Backend developer</span>
+        </div>
+        <hr>
+        <div class="dev-about">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="dev-links">
+          <ul class="social-networks square spin-icon">
+            <li><a href="https://www.linkedin.com/" class="icon-linkedin">LinkedIn</a></li>
+            <li><a href="https://github.com" class="icon-github">GitHub</a></li>
+            <li><a href="https://twitter.com/" class="icon-twitter">Twitter</a></li>
+            <li><a href="https://www.facebook.com/" class="icon-facebook">Facebook</a></li>
+            <!-- <li><a href="https://twitch.tv" class="icon-twitch">Twitch</a></li> -->
+            <!-- <li><a href="https://pinterest.com" class="icon-pinterest">Pinterest</a></li> -->
+            <li><a href="https://instagram.com" class="icon-instagram">Instagram</a></li>
+            <!-- <li><a href="https://vimeo.com" class="icon-vimeo">Vimeo</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="developer">
+      <div class="dev-img-container">
+        <img class="dev-img" src="https://ak0.picdn.net/shutterstock/videos/14179190/thumb/1.jpg?i10c=img.resize(height:160)" alt="developer image">
+      </div>
+      <div class="dev-description text-center">
+        <div class="dev-name">
+          <h1>Mohit Yadav</h1>
+          <span class="dev-designation">Frontend developer</span>
+        </div>
+        <hr>
+        <div class="dev-about">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="dev-links">
+          <ul class="social-networks square spin-icon">
+            <li><a href="https://www.linkedin.com/in/mohityadav7/" class="icon-linkedin">LinkedIn</a></li>
+            <li><a href="https://github.com/mohityadav7/" class="icon-github">GitHub</a></li>
+            <li><a href="https://twitter.com/_mohit_yadav/" class="icon-twitter">Twitter</a></li>
+            <li><a href="https://www.facebook.com/mohityadav21/" class="icon-facebook">Facebook</a></li>
+            <!-- <li><a href="https://twitch.tv" class="icon-twitch">Twitch</a></li> -->
+            <!-- <li><a href="https://pinterest.com" class="icon-pinterest">Pinterest</a></li> -->
+            <li><a href="https://instagram.com/mohityadav7" class="icon-instagram">Instagram</a></li>
+            <!-- <li><a href="https://vimeo.com" class="icon-vimeo">Vimeo</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <!-- <script type="text/javascript">
+      particlesJS.load('particles-js', './particles.json', function() {
+        console.log('callback - particles.js config loaded');
+      });
+    </script> -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

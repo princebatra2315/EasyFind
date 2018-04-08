@@ -3,7 +3,7 @@
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 <body onload="onReady()">
 
-<h1>Generate Profile</h1>
+<h1 style="text-align: center;">Edit Profile</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -33,9 +33,7 @@
        <%= f.label :Address %>
        <%= f.text_field :address,class: 'form-control' %>
 
-       <!-- Lat lng testing -->
-        <h>If you want to share your live location click live else enter your nerest popular building</h><br>
-        <button onclick="getLocation();">Try it</button> 
+       <!-- Lat lng testing --> 
  
          <!-- <div id="locationField">  -->
          <input id="autocomplete" placeholder="Enter your address"

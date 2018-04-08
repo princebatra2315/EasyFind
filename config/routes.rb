@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get  '/help',       to: 'pages#help'
   post  '/contact',  to: 'feedbacks#create'
   get   '/feedback', to:  'feedbacks#index'
-
-resources :profiles,  only: [:create, :destroy, :edit]
+  
+resources :profiles
 end

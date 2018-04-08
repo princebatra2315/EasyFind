@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   # before_action :logged_in_user, only: [:create, :destroy, :edit]
-
+   
 def index
   # @profiles=Profile.paginate(:page => params[:page], per_page: 1).order("price")
   @profiles=Profile.all.order("price")
@@ -123,16 +123,19 @@ def create
 
 
   
+  def edit
+  @profile=Profile.find(params[:id])
+  end
+
   def update
   @profile=Profile.find(params[:id])
   if @profile.update_attributes(profile_params)
   flash[:success]="profile updated"
-  redirect_to root_path
+   redirect_to root_path
   else
   render 'edit'
   end
   end
-
 
   def destroy
   end
