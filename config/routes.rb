@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   post '/profile' ,  to: 'profiles#create'
   get  '/profile' ,  to: 'profiles#new'
   get  '/profiles' ,   to: 'profiles#index'
+  
+  get  '/profile/edit/:id' ,  to: 'profiles#edit'
+  post  '/profile/edit/:id' ,  to: 'profiles#update'
+
   post '/profiles/filter' ,  to: 'profiles#filter' 
   get  '/about',     to: 'pages#about'
   get  '/contact',   to: 'feedbacks#new'
@@ -16,5 +20,4 @@ Rails.application.routes.draw do
   post  '/contact',  to: 'feedbacks#create'
   get   '/feedback', to:  'feedbacks#index'
   
-resources :profiles
 end

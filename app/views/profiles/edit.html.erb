@@ -7,44 +7,27 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-   
-  <%= form_for(@profile) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :Name %>
-      <%= f.text_field :fname,class: 'form-control', placeholder: "Name Of FLAT/PG" %>
-      <br>
     
-      <%= f.label :Price %>
-      <%= f.text_field :price,class: 'form-control'%>
-      <br>
-      <%= f.label :Allowed %>
-      <%= f.select :allowed, ['Only Boys', 'Only Girls', 'Both'], class: 'form-control' %>
-      <br><br>
-      <%= f.label :Details %>
-      <%= f.text_field :details,class: 'form-control'%>
-
-      <%= f.label :Phone %>
-      <%= f.text_field :phone,class: 'form-control'%>
-       <br>
-      <%= f.label :Type %>
-      <%= f.select :room_type, ['FLAT', 'PG'], class: 'form-control' %>
-       <br><br>
-       <%= f.label :Address %>
-       <%= f.text_field :address,class: 'form-control' %>
-
-       <!-- Lat lng testing --> 
- 
+     <form action="/profile/edit/<%= @profile.id%>" method="post">
+      <%= token_tag %>
+      <input type="text" name="profile[fname]" placeholder="Name Of FLAT/PG" value="<%= @profile.fname %>"><br>
+      <input type="integer" name="profile[price]" value="<%= @profile.price %>"><br>
+      <input type="text" name="profile[allowed]" value="<%= @profile.allowed %>"><br>
+      <input type="text" name="profile[details]" value="<%= @profile.details %>"><br>
+      <input type="text" name="profile[phone]" value="<%= @profile.phone %>"><br>
+      <input type="text" name="profile[room_type]" value="<%= @profile.room_type %>"><br>
+      <input type="text" name="profile[address]" value="<%= @profile.address %>"><br>
+      
          <!-- <div id="locationField">  -->
          <input id="autocomplete" placeholder="Enter your address"
               type="text" onkeydown="prevententer(event);">
               <br>
-        <input type="hidden" id="profile_lat" name="profile_lat">
+        <input type="hidden" id="profile_lat" name="profile_lat" value="<%= @profile.latitude%>">
 
-        <input type="hidden" id="profile_lng" name="profile_lng">
+        <input type="hidden" id="profile_lng" name="profile_lng" value="<%= @profile.longitude%>">
  
         <br/> 
-        <%= f.label :Profile_pic %>
+        Profile pic
       
         <span class="picture">
        <input type="hidden" id="profile_picture" name="profile_picture">
@@ -53,9 +36,13 @@
        <input type="file" onchange="getfile()" id="photo">
        <progress value="0" id="uploader" max="100">0%</progress>
        <br/>
-       <%= f.submit "Save Changes", class: "btn btn-primary",id: "submit_profile" %>
+       <input type="submit" id="submit_profile" class="btn btn-primary">
  
-      <% end %>
+      </form>
+      
+
+
+
       
       <button id="submitBtngg" onclick="myfunction()" style="display: none;">submit</button>
       

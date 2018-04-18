@@ -124,17 +124,23 @@ def create
 
   
   def edit
-  @profile=Profile.find(params[:id])
+     @profile=Profile.find(params[:id])
   end
 
   def update
-  @profile=Profile.find(params[:id])
-  if @profile.update_attributes(profile_params)
-  flash[:success]="profile updated"
-   redirect_to root_path
-  else
-  render 'edit'
-  end
+    @profile=Profile.find(params[:id])
+    if @profile.update_attributes(profile_params)
+    flash[:success]="profile updated"
+     redirect_to root_path
+    else
+    render 'edit'
+    end
+    
+    @profile.picture=params['profile_picture']  
+    @profile.latitude=params['profile_lat']
+    @profile.longitude=params['profile_lng']  
+    @profile.save
+
   end
 
   def destroy
