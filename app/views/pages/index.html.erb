@@ -1,229 +1,95 @@
-<style >
-  body{
-  margin: 0px;
-  padding: 0px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Travel Easy | Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- main css -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/navbar-custom.css">
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- font awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Hi+Melody|Roboto+Condensed|Montserrat|Sacramento|Karla|Slabo+27px|Raleway|Tajawal|Proza+Libre|Source+Sans+Pro" rel="stylesheet">
+</head>
 
-  background: #8e9eab;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-
-h2{
-  font-family: 'Karla', sans-serif;
-  }
-
-.float-right{float: right;}
-.float-left{float: left;}
-.text-white{color: #eee;}
-
-nav{padding: 0px !important; margin: 0px !important;}
-
-#myCarousel{background-size: cover;}
-.item{margin: 50px 0;}
-.carousel-control{background: rgba(0,0,0,0) !important;}
-.car-img{
-  box-shadow: 0 0 50px #555;
-  width: 60%;
-  opacity: 0.9;
-}
-
-.position-relative{position: relative;}
-.l-50{left: 50%;}
-.mx-50{
-  transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-}
-
-img {
-    object-fit: cover;
-}
-
-.choices{
-  box-sizing: border-box;  background: #5f2c82;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #49a09d, #5f2c82);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  padding: 50px 0 30px 0;
-}
-
-.choice-cards{
-  box-sizing: border-box;
-  padding: 20px 0;
-  margin: 20px 0 0px 0;
-}
-
-.choice-card{
-  box-sizing: border-box;
-  width: 80%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  padding: 20px;
-  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-  transition: all 0.2s;
-  margin-bottom: 40px;
-  cursor: pointer;
-}
-
-.choice-card:hover{
-  transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  box-shadow: 0 0 30px #444;
-  transition: all 0.2s;
-}
-
-.choice-card-body{
-  padding: 10px 0 10px 0;
-}
-
-.fa-home{
-  margin: 10px 0 10px 0;
-  font-size: 30px;
-  color: white;
-}
-
-.title-text{
-  font-family: 'Tajawal', sans-serif;
-  font-size: 20px;
-}
-
-.serve-boxes{
-  box-sizing: border-box;
-  background: #7b4397;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #dc2430, #7b4397);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #dc2430, #7b4397); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: #136a8a;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  padding: 50px 0px;
-}
-
-.serve-box{
-  box-sizing: border-box;
-  margin: 30px 0;
-  padding: 10px 55px;
-}
-.serve-title-text{
-  color: #DADFE1;
-}
-.serve-box-text{
-  color: #DADFE1;
-}
-
-.about-text{
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif;
-}
-
-.about{
-  background: #43cea2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  box-sizing: border-box;
-  padding: 50px 0 70px 0;
-}
-.about-heading{
-  color: #eee;
-}
-.about-text{
-  padding: 20px 20% 0 20%;
-  color: #eee;
-}
-.mfooter{
-  padding: 50px 0 70px 0;
-  font-family: 'Raleway', sans-serif;
-  font-size: 15px;
-}
-
-
-/* media queries */
-@media screen and (max-width: 768px) {
-  .car-img{
-    width: 100%;
-  }
-  .carousel-control{background: rgba(0,0,0,0) !important;}
-  .about-text{padding: 20px 0 0 0;}
-}
-
-</style>
-<% content_for :top_content do %>
-<div style="width: 75%; margin: auto; margin-top: 20px;">
-      <div class="alert alert-success text-center alert-dismissible" role="alert">
-        If you are a PG/Flat owner. You can register yours <%= link_to 'here', new_user_registration_path %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
-<!-- carousel -->
-  <div class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active" style="width:100%;">
-          <img src="/a1.jpg" class="position-relative l-50 mx-50 car-img" alt="Los Angeles" width="60%">
+<body>
+  <div class="main">
+    <!-- navbar -->
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">EasyFind</a>
         </div>
 
-        <div class="item" style="width:100%;">
-          <img src="/a0.jpg" class="position-relative l-50 mx-50 car-img" alt="Chicago" width="60%">
-        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <!-- <ul class="nav navbar-nav">
+          </ul> -->
+          <!-- <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+          </form> -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Browse</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#" id="list-your-pg-link">List your PG/Flat</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
-        <div class="item" style="width:100%;">
-          <img src="/a2.jpg" class="position-relative l-50 mx-50 car-img" alt="New york" width="60%">
-        </div>
-
-        <div class="item" style="width:100%;">
-          <img src="/a3.jpg" class="position-relative l-50 mx-50 car-img" alt="Los Angeles" width="60%">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-6 text-white p-5 main-content">
+          <h2>Welcome</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <button type="button" class="btn btn-default browse-button" name="button">Browse</button>
         </div>
       </div>
-
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </div>
 
   <!-- what are you looking for -->
   <div class="choices">
-    <h2 class="text-center text-white choice-header">WHAT ARE YOU LOOKING FOR?</h2>
+    <h2 class="text-center text-white choice-header">WHAT ARE YOU LOOKING FOR?</h2> <hr class="underline mb-10">
 
     <!-- choice cards -->
     <div class="choice-cards" align="middle">
       <div class="container">
         <div class="row no-gutters">
           <!-- card 1 -->
-          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
+          <div class="col-md-3 col-sm-6" onclick="location.href='https://www.google.com'">
             <div class="choice-card">
               <div class="choice-card-icon"  align="middle">
                 <!-- <i class="fas fa-home"></i> -->
                 <img src="/home-icon1.png" height="100px" width="100px" alt="home">
               </div>
-              <div class="choice-card-body title-text title-text">
+              <div class="choice-card-body title-text">
                 PG
               </div>
             </div>
           </div> <!-- /card 1 -->
 
           <!-- card 2 -->
-          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
+          <div class="col-md-3 col-sm-6">
             <div class="choice-card">
               <div class="choice-card-icon"  align="middle">
                 <!-- <i class="fas fa-home"></i> -->
@@ -236,27 +102,27 @@ background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, F
           </div> <!-- /card 2 -->
 
           <!-- card 3 -->
-          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
+          <div class="col-md-3 col-sm-6">
             <div class="choice-card">
               <div class="choice-card-icon"  align="middle">
                 <!-- <i class="fas fa-home"></i> -->
                 <img src="/home-icon3.png" height="100px" width="100px" alt="home">
               </div>
               <div class="choice-card-body title-text">
-                Shared Rooms
+                Shared Room
               </div>
             </div>
           </div> <!-- /card 3 -->
 
           <!-- card 4 -->
-          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
+          <div class="col-md-3 col-sm-6">
             <div class="choice-card">
               <div class="choice-card-icon" align="middle">
                 <!-- <i class="fas fa-home"></i> -->
                 <img src="/home-icon4.png" height="100px" width="100px" alt="home">
               </div>
               <div class="choice-card-body title-text">
-                Family Homes
+                Family Home
               </div>
             </div>
           </div> <!-- /card 4 -->
@@ -266,7 +132,7 @@ background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, F
   </div> <!-- choices -->
 
   <div class="serve-boxes">
-    <h2 class="text-center text-white serve-header">HOW WE SERVE YOU?</h2>
+    <h2 class="text-center serve-heading">HOW WE SERVE YOU?</h2> <hr class="underline mb-10">
     <div class="container">
       <div class="row no-gutters">
         <div class="col-md-4 col-sm-6">
@@ -275,9 +141,9 @@ background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, F
               <img src="/home-icon1.png" height="100px" width="100px" alt="">
             </div>
             <div class="serve-box-text-content text-center">
-              <h3 class="serve-title-text text-white">1. EASY SELECT</h3>
-              <div class="serve-box-text text-white">
-                Choose Your desired FLAT/PG/ROOM according to Your Requirements.
+              <h3 class="serve-title-text">1. Something</h3>
+              <div class="serve-box-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
               </div>
             </div>
           </div>
@@ -285,12 +151,12 @@ background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, F
         <div class="col-md-4 col-sm-6">
           <div class="serve-box" align="middle">
             <div class="serve-box-img">
-              <img src="/home-icon3.png" height="100px" width="100px" alt="">
+              <img src="/home-icon1.png" height="100px" width="100px" alt="">
             </div>
-            <div class="serve-box-text text-white-content text-center">
-              <h3 class="serve-title-text text-white">2. CONTACT OWNER</h3>
-              <div class="serve-box-text text-white">
-                Contact the Owner instantly via email or his/her contact number.
+            <div class="serve-box-text-content text-center">
+              <h3 class="serve-title-text">2. Something</h3>
+              <div class="serve-box-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
               </div>
             </div>
           </div>
@@ -298,12 +164,12 @@ background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, F
         <div class="col-md-4  col-sm-6">
           <div class="serve-box" align="middle">
             <div class="serve-box-img">
-              <img src="/home-icon2.png" height="100px" width="100px" alt="">
+              <img src="/home-icon1.png" height="100px" width="100px" alt="">
             </div>
             <div class="serve-box-text-content text-center">
-              <h3 class="serve-title-text text-white">3. VISIT & BOOK</h3>
-              <div class="serve-box-text text-white">
-                If you want visit the house then you can visit and book your house.
+              <h3 class="serve-title-text">3. Something</h3>
+              <div class="serve-box-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
               </div>
             </div>
           </div>
@@ -315,59 +181,33 @@ background: linear-gradient(to right, #49a09d, #5f2c82); /* W3C, IE 10+/ Edge, F
   <!-- about -->
   <div class="about">
     <div class="container">
-      <div class="container">
-        <div class="container">
-          <h2 class="text-center about-heading">WHAT EASY FIND IS ALL ABOUT?</h2>
-          <p class="about-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            <br></br>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+      <h2 class="text-center about-heading theme-color-green">WHAT EASY FIND IS ALL ABOUT?</h2> <hr class="underline mb-10" align="center">
+      <p class="about-text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <br></br>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+        <div class="row no-gutters mt-10">
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-default m-3 p-2 float-right" name="button">Browse PGs</button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-default m-3 p-2 list-your-pg-link float-left" name="button">List your PG</button>
+          </div>
         </div>
-      </div>
     </div>
   </div> <!-- /about -->
 
   <!-- map and footer -->
-  <div class="container mfooter">
-    <!-- map -->
-    <div class="row no-gutters">
-      <div class="col-md-6">
-        <div class="map">
-          <!-- your map code will go here -->
-
-
+  <div class="container">
+    <div class="footer">
+      <div class="row no-gutters">
+        <div class="footer-text text-center">
+          EasyFInd 2018
         </div>
-      </div>
-      <!-- footer -->
-      <div class="col-md-6">
-        <footer>
-          <div class="row no-gutters" align="middle">
-            <div class="col-sm-6">
-                <ul class="list-unstyled text-white">
-                  <!-- to be changed by Prince Batra according to requirement -->
-                  <dt class=" text-muted">For Owners</dt>
-                  <li><a class="text-dark text-muted" href="/users/sign_in">Login</a></li>
-                  <li><a class="text-dark text-muted" href="/users/sign_up">Register</a></li>
-                  <li><a class="text-dark text-muted" href="/contact">Contact</a></li>
-                  <li><a class="text-dark text-muted" href="/help">Help</a></li>
-                  <li><a class="text-dark text-muted" href="/profile">Edit Profile</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-6">
-                  <ul class="list-unstyled text-white">
-                    <dt class=" text-muted">For Users</dt>
-                    <li><a class="text-dark text-muted" href="/profiles">Check PGs/FLATs</a></li>
-                    <li><a class="text-dark text-muted" href="/users/sign_up">Register</a></li>
-                    <li><a class="text-dark text-muted" href="/contact">Contact</a></li>
-                    <li><a class="text-dark text-muted" href="/help">Help</a></li>
-                    <li><a class="text-dark text-muted" href="/about">Developer Profile</a></li>
-                  </ul>
-                </div>
-          </div>
-        </footer>
       </div>
     </div>
   </div>
 </br></br></br>
-<% end %>
+</body>
+</html>
