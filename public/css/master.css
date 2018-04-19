@@ -1,0 +1,157 @@
+html{
+  font-size: 16px;
+}
+*{
+  border-radius: 0 !important;
+}
+.w-75{
+  width: 75;
+}
+.p-2{padding: 10px;}
+.p-3{padding: 15px;}
+.p-4{padding: 20px;}
+
+.pb-1{padding-bottom: 5px;}
+.pb-2{padding-bottom: 10px;}
+
+.m-4{
+  margin: 20px;
+}
+
+/* form */
+.navabar-form{
+  background: #222 !important;
+}
+.input-checkbox{
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+  top: 0.25rem;
+  margin-right: .5rem !important;
+}
+.bg-light{background-color: #eee;}
+
+label{
+  font-weight: normal;
+}
+.sidebar-container{
+  margin-top: 40px;
+}
+.sidebar-heading{
+  font-size: 1.1rem;
+  color: var(--text-dark-low);
+}
+.sidebar-container .fas{
+  color: #888;
+}
+
+.filter-list-item{
+  border: 0px;
+}
+.sort-ul .list-group-item{
+  padding: 15px 15px !important;
+}
+.sort-ul .list-group-item a{
+  color: #666;
+}
+.sort-ul .list-group-item, .categories-ul .list-group-item, .allowed-ul .list-group-item{
+  background-color: #fafafa;
+  color: #666;
+}
+.sort-ul .list-group-item-header, .categories-ul .list-group-item-header, .allowed-ul .list-group-item-header{
+  background-color: #eee;
+  color: var(--text-dark);
+}
+
+.card{
+  border: 1px solid rgba(0,0,0,.120);
+  /* border-radius: calc(.3rem - 1px) calc(.3rem - 1px); */
+  background-color: #fafafa;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.card:hover{
+  transform: scale(1.02);
+  transition: all 0.2s;
+  box-shadow: 0 0 30px #777;
+}
+
+.card-header{
+  /* border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0; */
+  padding: 0.65rem 1rem 0.3rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  word-wrap: break-word;
+  background-color: rgba(0,0,0,.03);
+}
+
+.card-body{
+  padding: 0rem;
+}
+
+.card-img-top{
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 210px;
+  width: 100%;
+}
+/* card list style */
+.card-ul{
+  border: 0;
+  margin-bottom: 0px;
+}
+.card-ul .list-group-item{
+  border-top: 1px solid #ddd !important;
+  border-bottom: 1px solid #ddd !important;
+  border-left: 0px !important;
+  border-right: 0px !important;
+}
+.name{
+  font-family: 'Raleway', sans-serif;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  color: #777;
+  text-align: center;
+}
+.address{
+  font-size: 14px;
+  color: #999;
+  /* margin-top: -0.3rem; */
+}
+.price{
+  font-size: 18px;
+  color: #888;
+}
+.type{
+  color: #777;
+}
+.phone, .email{
+  font-size: 16px;
+  color: #777;
+}.phone, .email{
+  font-size: 16px;
+  color: #777;
+}
+/* card list icon style */
+.fas{
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: 0 0.5rem 0 0.5rem;
+}
+.fa-home{
+  color: #888;
+}
+.fa-rupee-sign{
+  color: green;
+}
+.fa-phone{
+  color: #226699;
+}
+.fa-envelope{
+  color: #2cb181;
+}
+.fa-map-marker{
+  color: #0dd2ba;
+}

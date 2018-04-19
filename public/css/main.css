@@ -24,6 +24,7 @@ html, body{
 .m-4{margin: 20px !important;}
 .m-5{margin: 25px !important;}
 
+.mb-4{margin-bottom: 20px;}
 .mb-10{margin-bottom: 50px;}
 
 .mt-10{margin-top: 50px;}
@@ -31,6 +32,7 @@ html, body{
 .float-right{float: right;}
 .float-left{float: left;}
 .text-white{color: #fff;}
+.text-dark{color: #444;}
 
 h2{
   font-family: 'Montserrat', sans-serif;
@@ -39,7 +41,7 @@ h2{
 .main{
   min-height: 100%;
   /* background: linear-gradient(to bottom, rgba(0,0,0,0) 96%, rgba(200, 186, 179, 0) 98%, rgba(220, 220, 220, 0.5) 100%), linear-gradient(to right, rgba(100,100,100, 0.7) 50%, rgba(0,0,0,0) 100%) ,url('https://images.pexels.com/photos/87223/pexels-photo-87223.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 96%, rgba(200, 186, 179, 0) 98%, rgba(153,184,205,1) 100%), url('https://images.pexels.com/photos/358636/pexels-photo-358636.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 96%, rgba(200, 186, 179, 0) 98%, rgba(153,184,205,0) 100%), url('https://images.pexels.com/photos/358636/pexels-photo-358636.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left top;
@@ -84,8 +86,6 @@ nav{
   color: white !important;
   text-transform: uppercase;
 }
-#list-your-pg-link{background-color: #9ab9ce;}
-#list-your-pg-link:hover{background-color: #e7e7e7;}
 
 .carousel-control{background: rgba(0,0,0,0) !important;}
 .car-img{
@@ -104,17 +104,21 @@ nav{
 
 .choices{
   box-sizing: border-box;
-  background-image: linear-gradient(to bottom, rgba(153,184,205,1), rgba(256,256,256,0)), linear-gradient(rgba(0,0,0, 0) 96%, rgba(54,114,150,1) 100%), url('https://images.pexels.com/photos/110575/pexels-photo-110575.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  /* background-image: linear-gradient(to bottom, rgba(153,184,205,0), rgba(256,256,256,0)), linear-gradient(rgba(0,0,0, 0) 96%, rgba(54,114,150,0) 100%), url('https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
+  /* background-image: url('https://images.pexels.com/photos/458983/pexels-photo-458983.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
+  background-image: url('https://images.pexels.com/photos/2255/black-and-white-city-houses-skyline.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  /* background-image: url('https://images.pexels.com/photos/872958/pexels-photo-872958.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
   /* background-image: linear-gradient(rgba(0,0,0,0), rgba(256,256,256,0.5)), url('https://images.pexels.com/photos/2255/black-and-white-city-houses-skyline.jpg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 100px 0 80px 0;
+  /* min-height: 100%; */
 }
 .choices hr.underline{
   width: 50%;
-  border-top: 0.09em solid #fff;
+  border-top: 0.09em solid #444;
   margin: auto;
 }
 
@@ -141,22 +145,22 @@ nav{
 }
 
 .choice-card:hover{
-  transform: scale(1.05);
   -moz-transform: scale(1.05);
   -webkit-transform: scale(1.05);
   box-shadow: 0 0 30px #444;
+  transform: scale(1.05);
   transition: all 0.2s;
 }
 
 .choice-card-body{
   padding: 10px 0 10px 0;
 }
-
+/*
 .fa-home{
   margin: 10px 0 10px 0;
   font-size: 30px;
   color: white;
-}
+} */
 
 .title-text{
   font-family: 'Tajawal', sans-serif;
@@ -166,6 +170,7 @@ nav{
 .serve-boxes{
   box-sizing: border-box;
   background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+  /* background-image: url('https://images.pexels.com/photos/558478/pexels-photo-558478.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -202,8 +207,10 @@ nav{
 
 .about{
   background-image: url('http://www.userlogos.org/files/backgrounds/Mafia_Penguin/Map1280x800.jpg');
+  /* background-image:  */
   box-sizing: border-box;
   padding: 120px 18px;
+  /* min-height: 100%; */
 }
 .about button{
   border-radius: 0;
@@ -223,9 +230,12 @@ nav{
 }
 .footer{
   box-sizing: border-box;
-  padding: 40px 0 20px 0;
+  padding: 40px 0 40px 0;
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
+  background-color: #eee;
+  color: var(--text-dark-low);
+  /* margin-top: 20px; */
 }
 .footer-text{
   font-family: 'Montserrat', sans-serif;
