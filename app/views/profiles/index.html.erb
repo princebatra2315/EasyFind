@@ -1,21 +1,13 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/navbar-custom2.css">
     <link rel="stylesheet" href="./css/master.css">
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-    <title>EasyFind</title>
-  </head>
-  <body>
+    <script type="text/javascript">
+    var onclickk=function(event){
+    filtersubmit=document.getElementById('filtersubmit');
+       filtersubmit.click();
+    console.log(event.target.getAttribute('id'));
+   }
+</script>
 
     <nav class="navbar navbar-custom nav">
       <div class="container-fluid">
@@ -27,52 +19,46 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">EasyFind</a>
+          <a class="navbar-brand" href="/">EasyFind</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav" style="margin: auto;">
-            <form class="navbar-form navbar-right">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Search</button>
-            </form>
+            <div class="navbar-form navbar-right">
+              <div class="form-group"><%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
+         <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
+         <%= submit_tag "Search", :name => nil %>
+         <% end %>            </div>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Home <span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="#">Browse</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#" id="list-your-pg-link">List your PG/Flat</a></li>
+            <li><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/profiles">Browse</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">Developers</a></li>
+              <% if !user_signed_in? %>
+            <li><a href="/users/sign_in" id="list-your-pg-link">List your PG/Flat</a></li>
+            <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
+              <li><a href="/profile">Create Profile</a></li>
+              <!-- <li><a href="/profile/edit/id">Edit Profile</a></li> -->
+              </ul>
+            </li>
+            <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
-
-    <!-- <div class="my-3 container">
-      <form class="my-2 my-lg-0">
-        <input class="form-inline form-control mr-sm-2 d-inline float-left w-75" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-info my-sm-0 float-right" type="submit">Search</button>
-      </form>
-    </div> -->
-    <!-- <div style="width: 75%; margin: auto;">
-      <div class="alert alert-success text-center alert-dismissible" role="alert">
-        If you are a PG/Flat owner. You can register yours <a href="#">here</a>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div> -->
-
-
     <div class="container main-body">
       <div class="row no-gutters">
 
         <div class="col-md-3 col-lg-3 sidebar-container mt-4">
-
+        <form action="/profiles/filter" id="filterform"  method="post" data-remote="true">    
+         <%= token_tag %>
           <div class="sidebar-heading"><i class="fas fa-filter"></i> Sort and Filter</div> <hr>
           <ul class="list-group sort-ul">
             <li class="list-group-item sort-list-item list-group-item-header"><i class="fas fa-rupee-sign"></i> Sort by Price</li>
@@ -87,23 +73,23 @@
               </label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck1">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-flat" name="flat" value="1" onclick="onclickk(event)">
               <label class="form-check-label" for="defaultCheck1">
                 Flat
               </label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck2">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-pg" name="pg" value="1" onclick="onclickk(event)">
               <label class="form-check-label" for="defaultCheck2">
                 PG
               </label>
             </li>
-            <!-- <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck3">
-              <label class="form-check-label" for="defaultCheck3">
+             <li class="list-group-item">
+              <input class="form-check-input input-checkbox" type="checkbox">
+              <label class="form-check-label" for="defaultCheck2">
                 Both
               </label>
-            </li> -->
+            </li>
           </ul>
 
           <ul class="list-group allowed-ul">
@@ -113,15 +99,21 @@
               </label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck1">
+              <input class="form-check-input input-checkbox" type="checkbox"  id="filter-boys" name="boys" value="1" onclick="onclickk(event)">
               <label class="form-check-label" for="defaultCheck1">
                 Boys
               </label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck2">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-girls" name="girls" value="1" onclick="onclickk(event)">
               <label class="form-check-label" for="defaultCheck2">
                 Girls
+              </label>
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-both" name="both" value="1" onclick="onclickk(event)">
+              <label class="form-check-label" for="defaultCheck2">
+                Both
               </label>
             </li>
             <!-- <li class="list-group-item">
@@ -139,24 +131,26 @@
               </label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck1">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-1" name="I" value="1" onclick="onclickk(event)">
               <label class="form-check-label" for="defaultCheck1">
-                Flat
+                Less than 5000
               </label>
             </li>
             <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck2">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-2" name="II" value="1" onclick="onclickk(event)">
               <label class="form-check-label" for="defaultCheck2">
-                PG
+                5000-8000
               </label>
             </li>
-            <!-- <li class="list-group-item">
-              <input class="form-check-input input-checkbox" type="checkbox" value="" id="defaultCheck3">
-              <label class="form-check-label" for="defaultCheck3">
-                Both
+            <li class="list-group-item">
+              <input class="form-check-input input-checkbox" type="checkbox" id="filter-3" name="III" value="1" onclick="onclickk(event)">
+              <label class="form-check-label" for="defaultCheck2">
+                More than 8000
               </label>
-            </li> -->
+            </li>
           </ul>
+          <input type="submit" style="display: none;" id="filtersubmit">
+         </form>
         </div>
 
 
@@ -170,79 +164,41 @@
                 </ol>
               </nav>
             </div>
+            <div id="profilecontainer">
+            <% @profiles.each do |profile| %>
             <div class="col-md-6 col-sm-6 col-xs-12" align='middle'>
               <div class="card mb-10" style="width: 95%;">
                 <!-- <img class="card-img-top" src="./home.jpg" height="180px" width="320px" alt="Card image cap"> -->
-                <div class="card-img-top" style="background-image: url('./home1.jpg');"></div>
+                <% if profile.picture!=""%>
+                <div class="card-img-top" style="background-image: url('<%= profile.picture %>');"></div>
+                <% else %>
+                <div class="card-img-top" style="background-image: url('/default.jpg');"></div>
+                <% end %>
                 <div class="card-body text-left">
                   <ul class="list-group card-ul">
-                    <li class="name list-group-item">Royal PG</li>
-                    <li class="type list-group-item"><i class="fas fa-home"></i> PG</li>
-                    <li class="address list-group-item"><i class="fas fa-map-marker"></i> Sec-6, Faridabad</li>
-                    <li class="price pt-2 list-group-item"><i class="fas fa-rupee-sign"></i> 5000</li>
-                    <li class="phone list-group-item"><i class="fas fa-phone"></i> 9999999999</li>
-                    <li class="email list-group-item"><i class="fas fa-envelope"></i> example@example.com</li>
+                    <li class="name list-group-item"><%= profile.fname %></li>
+                    <li class="type list-group-item"><i class="fas fa-home"></i> <%= profile.room_type %></li>
+                    <li class="address list-group-item"><i class="fas fa-map-marker"></i>  <%= profile.address %></li>
+                    <li class="price pt-2 list-group-item"><i class="fas fa-rupee-sign"></i> <%= profile.price %></li>
+                    <li class="phone list-group-item"><i class="fas fa-phone"></i> <%= profile.phone %></li>
+                    <% user =  User.find(profile.user_id) %>
+                    <li class="email list-group-item"><i class="fas fa-envelope"></i> <%= user.email %>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12" align='middle'>
-              <div class="card mb-10" style="width: 95%;">
-                <!-- <img class="card-img-top" src="./home.jpg" height="180px" width="320px" alt="Card image cap"> -->
-                <div class="card-img-top" style="background-image: url('./home.jpg');"></div>
-                <div class="card-body text-left">
-                  <ul class="list-group card-ul">
-                    <li class="name list-group-item">Royal PG</li>
-                    <li class="type list-group-item"><i class="fas fa-home"></i> PG</li>
-                    <li class="address list-group-item"><i class="fas fa-map-marker"></i> Sec-6, Faridabad</li>
-                    <li class="price pt-2 list-group-item"><i class="fas fa-rupee-sign"></i> 5000</li>
-                    <li class="phone list-group-item"><i class="fas fa-phone"></i> 9999999999</li>
-                    <li class="email list-group-item"><i class="fas fa-envelope"></i> example@example.com</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12" align='middle'>
-              <div class="card mb-10" style="width: 95%;">
-                <!-- <img class="card-img-top" src="./home.jpg" height="180px" width="320px" alt="Card image cap"> -->
-                <div class="card-img-top" style="background-image: url('./home2.jpg');"></div>
-                <div class="card-body text-left">
-                  <ul class="list-group card-ul">
-                    <li class="name list-group-item">Royal PG</li>
-                    <li class="type list-group-item"><i class="fas fa-home"></i> Flat</li>
-                    <li class="address list-group-item"><i class="fas fa-map-marker"></i> Sec-6, Faridabad</li>
-                    <li class="price pt-2 list-group-item"><i class="fas fa-rupee-sign"></i> 5000</li>
-                    <li class="phone list-group-item"><i class="fas fa-phone"></i> 9999999999</li>
-                    <li class="email list-group-item"><i class="fas fa-envelope"></i> example@example.com</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12" align='middle'>
-              <div class="card mb-10" style="width: 95%;">
-                <!-- <img class="card-img-top" src="./home.jpg" height="180px" width="320px" alt="Card image cap"> -->
-                <div class="card-img-top" style="background-image: url('./home3.jpg');"></div>
-                <div class="card-body text-left">
-                  <ul class="list-group card-ul">
-                    <li class="name list-group-item">Royal PG</li>
-                    <li class="type list-group-item"><i class="fas fa-home"></i> Flat</li>
-                    <li class="address list-group-item"><i class="fas fa-map-marker"></i> Sec-6, Faridabad</li>
-                    <li class="price pt-2 list-group-item"><i class="fas fa-rupee-sign"></i> 5000</li>
-                    <li class="phone list-group-item"><i class="fas fa-phone"></i> 9999999999</li>
-                    <li class="email list-group-item"><i class="fas fa-envelope"></i> example@example.com</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <% end %>
+          </div>
           </div>
 
           <!-- pagination -->
-          <nav aria-label="...">
+        <!--   <nav aria-label="...">
             <ul class="pager">
               <li><a href="#">Previous</a></li>
               <li><a href="#">Next</a></li>
             </ul>
-          </nav>
+          </nav> -->
         </div>
       </div>
     </div>
@@ -253,12 +209,3 @@
         EasyFind 2018
       </div>
     </footer>
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </body>
-</html>

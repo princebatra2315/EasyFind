@@ -1,21 +1,61 @@
-<!DOCTYPE html>
-<html>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/navbar-custom2.css">
 
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-<body onload="onReady()">
+    <nav class="navbar navbar-custom nav">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">EasyFind</a>
+        </div>
 
-<h1 style="text-align: center;">Generate Profile</h1>
-
-<div class="row">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav" style="margin: auto;">
+            <div class="navbar-form navbar-right">
+              <div class="form-group"><%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
+         <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
+         <%= submit_tag "Search", :name => nil %>
+         <% end %>            </div>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/profiles">Browse</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">Developers</a></li>
+              <% if !user_signed_in? %>
+            <li><a href="/users/sign_in" id="list-your-pg-link">List your PG/Flat</a></li>
+            <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
+              <li><a href="/profile">Create Profile</a></li>
+              <!-- <li><a href="/profile/edit/id">Edit Profile</a></li> -->
+              </ul>
+            </li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+<div class="container">
+  <div class="row" style="background: #eee; padding: 40px; margin-bottom: 40px;">
+    <h1 style="text-align: center;">Generate Profile</h1>
   <div class="col-md-6 col-md-offset-3">
-   
+
   <%= form_for(@profile, url: profile_url) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :Name %>
       <%= f.text_field :fname,class: 'form-control', placeholder: "Name Of FLAT/PG" %>
       <br>
-    
+
       <%= f.label :Price %>
       <%= f.text_field :price,class: 'form-control'%>
       <br>
@@ -31,44 +71,45 @@
       <%= f.label :Type %>
       <%= f.select :room_type, ['FLAT', 'PG'], class: 'form-control' %>
        <br><br>
-       <%= f.label :Address %>
+       <%= f.label :Sector %>
        <%= f.text_field :address,class: 'form-control' %>
 
- 
+      <br><br>
          <!-- <div id="locationField">  -->
+          <label>Address</label>
          <input id="autocomplete" placeholder="Enter your address"
               type="text" onkeydown="prevententer(event);">
               <br>
         <input type="hidden" id="profile_lat" name="profile_lat">
 
         <input type="hidden" id="profile_lng" name="profile_lng">
- 
-        <br/> 
+
+        <br/>
         <%= f.label :Profile_pic %>
-      
+
         <span class="picture">
        <input type="hidden" id="profile_picture" name="profile_picture">
-       </span> 
+       </span>
        <br>
        <input type="file" onchange="getfile()" id="photo">
        <progress value="0" id="uploader" max="100">0%</progress>
        <br/>
        <%= f.submit "Create Profile", class: "btn btn-primary",id: "submit_profile" %>
- 
+
       <% end %>
-      
+
       <button id="submitBtngg" onclick="myfunction()" style="display: none;">submit</button>
-      
 
     </div>
   </div>
+</div>
  <!-- script to find lat lng -->
 <script>
 var x = document.getElementById("demo");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initMap);
-    } else { 
+    } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
@@ -80,12 +121,12 @@ function initMap(position){
         console.log(lngg);
         var uluru = {lat: latt, lng: lngg};
        }
-        
+
 
 </script>
 
 <script>
-   
+
    var prevententer=function(event){
       if(event.keyCode==13){
         event.preventDefault();
@@ -100,7 +141,7 @@ function initMap(position){
             {types: ['geocode']});
          autocomplete.addListener('place_changed', fillInAddress);
       }
-      
+
       function fillInAddress() {
         var place = autocomplete.getPlace();
          var lat=place.geometry.location.lat();
@@ -124,18 +165,18 @@ function initMap(position){
         console.log(lngg);
         document.getElementById('profile_lat').value=latt;
         document.getElementById('profile_lng').value=lngg;
-      } 
+      }
 </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaAUsx5VVCg_KBjhv38jeMNlz9qb8kuo4&libraries=places&callback=initAutocomplete"
         async defer>
         </script>
- 
 
-  
+
+
       <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
       <script type="text/javascript">
-     
+
       function onReady(){
           var config = {
           apiKey: "AIzaSyARSLZERWUbOj9al-p6Z1GtZ2S4laaKujk",
@@ -164,7 +205,7 @@ function initMap(position){
           document.getElementById('submitBtngg').click();
       }
       function myfunction()
-      {  
+      {
 
           var name = "<%= current_user.email%>";
 
@@ -176,10 +217,10 @@ function initMap(position){
               uploader.value=progress;
 
               switch (snapshot.state) {
-                case firebase.storage.TaskState.PAUSED: 
+                case firebase.storage.TaskState.PAUSED:
                   console.log('Upload is paused');
                   break;
-                case firebase.storage.TaskState.RUNNING: 
+                case firebase.storage.TaskState.RUNNING:
                   console.log('Upload is running');
                   break;
               }
@@ -196,6 +237,3 @@ function initMap(position){
 
       </script>
 
-
-</body>
-</html>

@@ -22,8 +22,10 @@
     <title>Easyfind</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+ 
  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -51,48 +53,6 @@
     </div>
   <% end %>
 </div>
-
-<nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><img src="/logo2.png" style="padding-bottom: 15px; margin-top: -15px;" width="100px" alt="logo"></a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><%= link_to 'Home', root_path %> <span class="sr-only">(current)</span></li>
-              <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/contact">Contact Us</a></li>
-      <li><a href="/about">Developer Page</a></li>
-      <li><a href="/help">Help</a></li>
-    </ul>
-  </li>
-          </ul>
-          <div class="navbar-form navbar-right">
-            <%= form_tag(profiles_path, :method => "get", id: "search-form") do %>
-         <%= text_field_tag :search, params[:search], placeholder: "Search Flats/PG's" %>
-         <%= submit_tag "Search", :name => nil %>
-         <% end %>
-         
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Login', new_user_session_path %></li>
-            <li><%= link_to 'List your PG/FLAT', new_user_registration_path %></li>
-            <li><%= link_to 'Check PGs/FLATs', profiles_path %></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
   <%= yield %>
     <%= yield :top_content %> 
 

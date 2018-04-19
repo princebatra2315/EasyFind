@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Travel Easy | Home</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- main css -->
+
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/navbar-custom.css">
-  <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- font awesome -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Hi+Melody|Roboto+Condensed|Montserrat|Sacramento|Karla|Slabo+27px|Raleway|Tajawal|Proza+Libre|Source+Sans+Pro" rel="stylesheet">
-</head>
 
-<body>
   <div class="main">
     <!-- navbar -->
     <nav class="navbar navbar-custom">
@@ -32,7 +14,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">EasyFind</a>
+          <a class="navbar-brand" href="/">EasyFind</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,11 +28,22 @@
             <button type="submit" class="btn btn-default">Search</button>
           </form> -->
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Browse</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#" id="list-your-pg-link">List your PG/Flat</a></li>
+            <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="/profiles">Browse</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">Developers</a></li>
+             <% if !user_signed_in? %>
+            <li><a href="/users/sign_in" id="list-your-pg-link">List your PG/Flat</a></li>
+            <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+               <li><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
+              <li><a href="/profile">Create Profile</a></li>
+              <!-- <li><a href="/profile/edit/id">Edit Profile</a></li> -->
+              </ul>
+            </li>
+            <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -59,9 +52,10 @@
     <div class="container">
       <div class="row no-gutters">
         <div class="col-md-6 text-white p-5 main-content">
-          <h2>Welcome</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <button type="button" class="btn btn-default browse-button" name="button">Browse</button>
+          <h3>Connecting you with the right accommodation & 
+the right people. Broker-Free!</h3>
+          <p>A clean and well-managed marketplace that has access to authentic information about PGs, flats and rental houses. Search your next home here. Make sure you invite us to the house-warming party. ;-)</p>
+          <a href="/profiles"><button type="button" class="btn btn-default browse-button" name="button">Browse</button></a>
         </div>
       </div>
     </div>
@@ -76,7 +70,7 @@
       <div class="container">
         <div class="row no-gutters">
           <!-- card 1 -->
-          <div class="col-md-3 col-sm-6" onclick="location.href='https://www.google.com'">
+          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
             <div class="choice-card">
               <div class="choice-card-icon"  align="middle">
                 <!-- <i class="fas fa-home"></i> -->
@@ -89,7 +83,7 @@
           </div> <!-- /card 1 -->
 
           <!-- card 2 -->
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
             <div class="choice-card">
               <div class="choice-card-icon"  align="middle">
                 <!-- <i class="fas fa-home"></i> -->
@@ -102,7 +96,7 @@
           </div> <!-- /card 2 -->
 
           <!-- card 3 -->
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
             <div class="choice-card">
               <div class="choice-card-icon"  align="middle">
                 <!-- <i class="fas fa-home"></i> -->
@@ -115,7 +109,7 @@
           </div> <!-- /card 3 -->
 
           <!-- card 4 -->
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" onclick="location.href='/profiles'">
             <div class="choice-card">
               <div class="choice-card-icon" align="middle">
                 <!-- <i class="fas fa-home"></i> -->
@@ -141,9 +135,9 @@
               <img src="./home-icon1.png" height="100px" width="100px" alt="">
             </div>
             <div class="serve-box-text-content text-center">
-              <h3 class="serve-title-text">1. Something</h3>
+              <h3 class="serve-title-text">1. EASY SELECT</h3>
               <div class="serve-box-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                Choose your desired FLAT/PG/ROOM according to your requirements.
               </div>
             </div>
           </div>
@@ -151,12 +145,12 @@
         <div class="col-md-4 col-sm-6">
           <div class="serve-box" align="middle">
             <div class="serve-box-img">
-              <img src="./home-icon1.png" height="100px" width="100px" alt="">
+              <img src="./home-icon3.png" height="100px" width="100px" alt="">
             </div>
             <div class="serve-box-text-content text-center">
-              <h3 class="serve-title-text">2. Something</h3>
+              <h3 class="serve-title-text">2. CONTACT OWNER</h3>
               <div class="serve-box-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                Contact the Owner instantly via email or his/her contact number.
               </div>
             </div>
           </div>
@@ -164,12 +158,12 @@
         <div class="col-md-4  col-sm-6">
           <div class="serve-box" align="middle">
             <div class="serve-box-img">
-              <img src="./home-icon1.png" height="100px" width="100px" alt="">
+              <img src="./home-icon2.png" height="100px" width="100px" alt="">
             </div>
             <div class="serve-box-text-content text-center">
-              <h3 class="serve-title-text">3. Something</h3>
+              <h3 class="serve-title-text">3. VISIT & BOOK</h3>
               <div class="serve-box-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                If you want to visit the house then you can visit and book your house.
               </div>
             </div>
           </div>
@@ -183,16 +177,16 @@
     <div class="container">
       <h2 class="text-center about-heading theme-color-green">WHAT EASY FIND IS ALL ABOUT?</h2> <hr class="underline mb-10" align="center">
       <p class="about-text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        <br></br>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+       The idea of Easyfind was born as a result of frustration and an inspiration. "Frustration", because of having heard and undergone the horrors of a house search and still being clueless on the way to go about finding the right accommodation. "Inspiration", as we knew that we could truly add value and cater to this inherent need.
+
+          We are a bunch of honest people with a drive to get students, bachelors and families to make a home out of a house.
       </p>
         <div class="row no-gutters mt-10">
           <div class="col-sm-6">
-            <button type="button" class="btn btn-default m-3 p-2 float-right" name="button">Browse PGs</button>
+            <a href="/profiles"><button type="button" class="btn btn-default m-3 p-2 float-right" name="button">Browse PGs</button></a>
           </div>
           <div class="col-sm-6">
-            <button type="button" class="btn btn-default m-3 p-2 list-your-pg-link float-left" name="button">List your PG</button>
+            <a href="/profile"><button type="button" class="btn btn-default m-3 p-2 list-your-pg-link float-left" name="button">List your PG</button></a>
           </div>
         </div>
     </div>
@@ -204,6 +198,3 @@
       EasyFind 2018
     </div>
   </footer>
-
-</body>
-</html>
