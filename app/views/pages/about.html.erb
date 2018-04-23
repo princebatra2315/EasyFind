@@ -250,6 +250,9 @@ body{
               <ul class="dropdown-menu">
                <li><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
               <li><a href="/profile">Create Profile</a></li>
+              <% @temp = Profile.where('user_id=?', current_user.id ) %>
+              <% @id=@temp.first.id %>
+              <li><%= link_to 'edit profile', 'profile/edit/'+(@id.to_s) %></li>
               <!-- <li><a href="/profile/edit/id">Edit Profile</a></li> -->
               </ul>
             </li>
@@ -314,32 +317,6 @@ body{
         </div>
       </div>
     </div>
-    <div class="developer">
-      <div class="dev-img-container">
-        <img class="dev-img" src="https://instagram.fdel11-1.fna.fbcdn.net/vp/032ef49e6cee8722c0103c8702a0cfa0/5B9C1009/t51.2885-19/s320x320/27881378_990595757755395_4603627723477221376_n.jpg" alt="developer image">
-      </div>
-      <div class="dev-description text-center">
-        <div class="dev-name">
-          <h1>Aashif Khan</h1>
-          <span class="dev-designation">MENTOR</span>
-        </div>
-        <hr>
-        <div class="dev-about">
-          He is a 3rd year BTech CE student at YMCA UST. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-        </div>
-        <div class="dev-links">
-          <ul class="social-networks square spin-icon">
-            <li><a href="https://www.linkedin.com/in/aashifkhan/" target="_blank" class="icon-linkedin">LinkedIn</a></li>
-            <li><a href="https://github.com/aashifkhanate" target="_blank" class="icon-github">GitHub</a></li>
-            <li><a href="https://twitter.com/aashifkhanate" target="_blank" class="icon-twitter">Twitter</a></li>
-            <li><a href="https://www.facebook.com/aashifkhanate" target="_blank" class="icon-facebook">Facebook</a></li>
-            <!-- <li><a href="https://twitch.tv" class="icon-twitch">Twitch</a></li> -->
-            <!-- <li><a href="https://pinterest.com" class="icon-pinterest">Pinterest</a></li> -->
-            <li><a href="https://www.instagram.com/aashifkhanate" target="_blank" class="icon-instagram">Instagram</a></li>
-            <!-- <li><a href="https://vimeo.com" class="icon-vimeo">Vimeo</a></li> -->
-          </ul>
-        </div>
-      </div>
-    </div>
+   
 
  </div>

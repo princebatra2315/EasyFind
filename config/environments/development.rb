@@ -40,7 +40,7 @@ config.action_mailer.raise_delivery_errors = true
     port: '25',
     domain: 'gmail.com',
     user_name: 'princebatra2315@gmail.com',
-    password: 'batraprince@',
+    password: 'nehabatrarohit',
     authentication: 'plain',
     enable_starttls_auto: true
   }
