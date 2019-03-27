@@ -45,7 +45,7 @@
                <li><%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete' %></li>
               <li><a href="/profile">Create Profile</a></li>
               <% @temp = Profile.where('user_id=?', current_user.id ) %>
-              <% @id=@temp.first.id %>
+              <% @id=current_user.id %>
               <li><%= link_to 'edit profile', 'profile/edit/'+(@id.to_s) %></li>
               </ul>
             </li>
